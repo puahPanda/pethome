@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PetHome</string>
+    <string-array name="number_options">
+        <item>SG +65</item>
+        <item>MY +60</item>
+    </string-array>
+</resources>
