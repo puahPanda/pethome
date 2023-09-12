@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green_button_color">#00FF00</color>
+    <color name="start_color">#FFFFFFFF</color>
+    <color name="mid_color">#78ffd6</color>
+    <color name="end_color">#79CBB7</color>
+    <color name="border_color">#D9D9D9</color>
 </resources>
