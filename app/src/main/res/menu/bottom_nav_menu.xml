@@ -10,9 +10,8 @@
         android:icon="@drawable/pethome_logo"/>
     <item
         android:id="@+id/chat"
-        android:title="Chat"
         android:icon="@drawable/nav_chat"
-        />
+        android:title="Chat" />
     <item
         android:id="@+id/profile"
         android:title="Profile"
