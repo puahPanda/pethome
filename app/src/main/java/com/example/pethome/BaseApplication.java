@@ -1,9 +1,13 @@
 package com.example.pethome;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.io.*;
 
@@ -12,24 +16,29 @@ public class BaseApplication extends AppCompatActivity
         .OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
+    MaterialToolbar myToolbar;
+    LikesFragment likesFragment = new LikesFragment();
+    ChatFragment chatFragment = new ChatFragment();
+    ProfileFragment profileFragment = new ProfileFragment();
+    VetFragment vetFragment = new VetFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_application);
-
+        myToolbar = (MaterialToolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setLogo(R.drawable.logocomplete_small);// set drawable icon
         bottomNavigationView
                 = findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView
                 .setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.home);
+
     }
-    LikesFragment likesFragment = new LikesFragment();
-    ChatFragment chatFragment = new ChatFragment();
-    ProfileFragment profileFragment = new ProfileFragment();
-    VetFragment vetFragment = new VetFragment();
 
     @Override
     public boolean
@@ -66,4 +75,31 @@ public class BaseApplication extends AppCompatActivity
         }
         return false;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
+        return true;
+    }
+
+    //actionbar item onClick()
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_settings:
+//                // User chose the "Settings" item, show the app settings UI...
+//                return true;
+//
+//            case R.id.action_favorite:
+//                // User chose the "Favorite" action, mark the current item
+//                // as a favorite...
+//                return true;
+//
+//            default:
+//                // If we got here, the user's action was not recognized.
+//                // Invoke the superclass to handle it.
+//                return super.onOptionsItemSelected(item);
+//
+//        }
+//    }
 }
