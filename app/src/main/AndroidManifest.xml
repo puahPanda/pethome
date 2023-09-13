@@ -12,9 +12,15 @@
         android:theme="@style/Theme.PetHome"
         tools:targetApi="31">
         <activity
+            android:name=".Liked"
+            android:exported="false" />
+        <activity
+            android:name=".profile_page"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true"
             android:configChanges="orientation"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,12 +28,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity"
+        <activity
+            android:name=".RegistrationActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ErrorPageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ErrorPageActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"
