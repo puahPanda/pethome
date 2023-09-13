@@ -1,48 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="183dp"
+        android:layout_height="174dp"
         android:layout_centerHorizontal="true"
+        android:contentDescription="PetHome_Logo"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logocomplete"
+        app:layout_constraintBottom_toTopOf="@+id/googleLoginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
 
-        android:src="@drawable/logocomplete" />
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/googleLoginButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/logoImageView"
-        android:layout_marginTop="211dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="@android:color/white"
+        android:drawableRight="@drawable/google"
+        android:fontFamily="@font/inter_medium"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="log in with google"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/dark_green_button_color"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberLoginButton"
+        tools:layout_editor_absoluteX="16dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/phoneNumberLoginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
         android:layout_below="@id/googleLoginButton"
-        android:layout_marginTop="16dp"
-        android:text="log in with phone number"
-        android:textColor="@android:color/black"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_button"
-        android:backgroundTint="@android:color/white" />
+        android:text="log in with phone number"
+        android:textColor="@color/dark_green_button_color"
+        app:layout_constraintBottom_toTopOf="@+id/registerButton"
+        tools:layout_editor_absoluteX="16dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/phoneNumberLoginButton"
-        android:layout_marginTop="16dp"
-        android:text="register"
-
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/inter_bold"
         android:background="@drawable/green_button_bg"
-        android:textColor="#FFFFFF" />
+        android:text="register"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
