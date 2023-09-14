@@ -12,6 +12,9 @@
         android:theme="@style/Theme.PetHome"
         tools:targetApi="31">
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
             android:name=".Liked"
             android:exported="false" />
         <activity
