@@ -1,14 +1,14 @@
 package com.example.pethome;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class make_appt_pet extends Activity {
+public class Liked extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_make_appt_pet);
+        setContentView(R.layout.activity_liked);
     }
-
 }
