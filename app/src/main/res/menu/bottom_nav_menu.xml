@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/likes"
+        android:title="Likes"
+        android:icon="@drawable/navbar_like"/>
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/pethome_logo"/>
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/nav_chat"
+        android:title="Chat" />
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/navbar_profile"/>
+</menu>
