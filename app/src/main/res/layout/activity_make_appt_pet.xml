@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="46dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="244dp"
         android:background="#009688"
         android:text="8:00" />
@@ -101,18 +101,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="34dp"
         android:layout_marginBottom="242dp"
         android:layout_toEndOf="@+id/btn_appt_1"
         android:text="9:00" />
 
     <Button
         android:id="@+id/btn_appt_3"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_appt_6"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="34dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="13dp"
         android:layout_toEndOf="@+id/btn_appt_2"
