@@ -16,6 +16,16 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        Button backToHomeButton = findViewById(R.id.backButton);
+        backToHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Create an intent to navigate to the home page (MainActivity)
+                Intent homeIntent = new Intent(RegistrationActivity.this, MainActivity.class);
+                startActivity(homeIntent);
+            }
+        });
+
         EditText numberEditText = findViewById(R.id.numberEditText);
         EditText usernameEditText = findViewById(R.id.usernameEditText);
         EditText passwordEditText = findViewById(R.id.passwordEditText);
