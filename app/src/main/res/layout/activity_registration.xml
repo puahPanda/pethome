@@ -78,6 +78,7 @@
         android:layout_below="@id/passwordEditText"
         android:layout_marginTop="16dp"
         android:text="Register"
-        android:backgroundTint="@android:color/transparent"
+        android:background="@drawable/green_button_bg"
+        android:textColor="#FFFFFF" />
         android:clickable="false" />
 </RelativeLayout>

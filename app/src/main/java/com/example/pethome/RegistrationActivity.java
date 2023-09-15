@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RegistrationActivity extends AppCompatActivity {
 
+    private EditText usernameEditText;
+    private EditText passwordEditText;
+    private Button registerButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,56 +30,38 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        EditText numberEditText = findViewById(R.id.numberEditText);
-        EditText usernameEditText = findViewById(R.id.usernameEditText);
-        EditText passwordEditText = findViewById(R.id.passwordEditText);
-        Button registerButton = findViewById(R.id.registerButton);
+        usernameEditText = findViewById(R.id.usernameEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        registerButton = findViewById(R.id.registerButton);
 
-        // Add text change listeners to the required EditText fields
-        TextWatcher textWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
+        // Initially, disable the "Register" button
+        registerButton.setEnabled(false);
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                checkFieldsAndEnableButton();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        };
-
-        numberEditText.addTextChangedListener(textWatcher);
+        // Add TextWatchers to monitor changes in the input fields
         usernameEditText.addTextChangedListener(textWatcher);
         passwordEditText.addTextChangedListener(textWatcher);
     }
-    private void checkFieldsAndEnableButton() {
-        EditText numberEditText = findViewById(R.id.numberEditText);
-        EditText usernameEditText = findViewById(R.id.usernameEditText);
-        EditText passwordEditText = findViewById(R.id.passwordEditText);
-        Button registerButton = findViewById(R.id.registerButton);
 
-        boolean allFieldsFilled = true;
-
-        // Check if all required fields are filled
-        for (EditText editText : new EditText[]{numberEditText, usernameEditText, passwordEditText}) {
-            if (editText.getTag() != null && editText.getTag().equals("required")) {
-                if (editText.getText().toString().trim().isEmpty()) {
-                    allFieldsFilled = false;
-                    break;
-                }
-            }
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            // No action needed before text changes
         }
 
-        // Enable or disable the button based on the state
-        if (allFieldsFilled) {
-            registerButton.setBackgroundTintList(getResources().getColorStateList(android.R.color.holo_green_light));
-            registerButton.setClickable(true);
-        } else {
-            registerButton.setBackgroundTintList(getResources().getColorStateList(android.R.color.transparent));
-            registerButton.setClickable(false);
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            // No action needed as text changes
         }
-    }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            // Check if all fields have text, then enable the "Register" button
+            String username = usernameEditText.getText().toString().trim();
+            String password = passwordEditText.getText().toString().trim();
+
+            boolean allFieldsFilled = !username.isEmpty() && !password.isEmpty();
+
+            registerButton.setEnabled(allFieldsFilled);
+        }
+    };
 }
