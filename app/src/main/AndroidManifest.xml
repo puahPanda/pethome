@@ -18,7 +18,6 @@
             android:name=".FilterPage"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
             android:name=".signup"
             android:exported="false" />
         <activity
