@@ -23,12 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SwipePage"
-            android:exported="true" />
-        <activity
-            android:name=".FilterPage"
-            android:exported="true" />
+        
         <activity
             android:name=".Login"
             android:exported="false" />
