@@ -12,6 +12,12 @@
         android:theme="@style/Theme.PetHome.Main"
         tools:targetApi="31">
         <activity
+            android:name=".SwipePage"
+            android:exported="true" />
+        <activity
+            android:name=".FilterPage"
+            android:exported="true" />
+        <activity
             android:name=".signup"
             android:exported="false" />
         <activity
@@ -23,7 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name=".Login"
             android:exported="false" />
