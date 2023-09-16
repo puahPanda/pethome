@@ -5,7 +5,7 @@
     android:id="@+id/btn_noti"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".appt_vet_service_location">
+    tools:context=".ApptVetServiceLocation">
 
     <Button
         android:id="@+id/button7"

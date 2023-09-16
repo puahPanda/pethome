@@ -73,8 +73,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="57dp"
-        android:layout_height="23dp"
+        android:layout_width="74dp"
+        android:layout_height="28dp"
         android:fontFamily="@font/crimson_pro_bold"
         android:text="SPCA"
         android:textAlignment="center"

@@ -12,7 +12,7 @@
         android:theme="@style/Theme.PetHome.Main"
         tools:targetApi="31">
         <activity
-            android:name=".appt_vet_service_location"
+            android:name=".ApptVetServiceLocation"
             android:exported="false" />
         <activity
             android:name=".SwipePage"
