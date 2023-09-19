@@ -136,7 +136,7 @@
         android:layout_marginStart="103dp"
         android:layout_marginTop="14dp"
         android:background="#16FF16"
-        android:text="Farrer Road &#10; Operating Hours: 9am-7pm"
+        android:text="Farrer Road &#10;Operating Hours: 9am-7pm"
         android:textAlignment="textStart"
         android:textColor="#FDFDFD"
         android:textSize="10sp" />
@@ -149,7 +149,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="103dp"
         android:layout_marginTop="7dp"
-        android:text="River Valley &#10; Operating Hours: 24/7"
+        android:text="River Valley &#10;Operating Hours: 24/7"
         android:textAlignment="viewStart"
         android:textSize="10sp" />
 
@@ -161,7 +161,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="102dp"
         android:layout_marginTop="6dp"
-        android:text="Clarke Quay &#10; Operating Hours: 9am-7pm"
+        android:text="Clarke Quay &#10;Operating Hours: 9am-7pm"
         android:textAlignment="viewStart"
         android:textSize="10sp" />
 
