@@ -13,10 +13,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -31,7 +35,6 @@ import java.util.Map;
  *
  */
 public class SwipeFragment extends Fragment {
-
     private ArrayAdapter<String> arrayAdapter;
     List<String> data;
     SwipeFlingAdapterView flingAdapterView;
@@ -70,29 +73,42 @@ public class SwipeFragment extends Fragment {
     }
 
 
-    private void likePet(){
+    private void readUser(String userID, String petString) {
+        DocumentReference docRef = db.collection("User").document(userID);
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                User user = documentSnapshot.toObject(User.class);
+                Log.d("DATABASE", "onSuccess: user" + user.getLikes());
+                if(!user.likedBefore(petString)){
+                    user.addLikes(petString);
+                    likePet(user.getLikes());
+                }
+            }
+        });
+    }
+
+    private void likePet(List<String> petString){
         //TODO add to database with current userID
         // Create a new user with a first and last name
-        Map<String, Object> user = new HashMap<>();
-        user.put("first", "Ada");
-        user.put("last", "Lovelace");
-        user.put("born", 1815);
+        Map<String, Object> data = new HashMap<>();
+        data.put("Likes", petString);
 
-        // Add a new document with a generated ID
-        db.collection("User")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("User").document("V55wAs8ZTFCo9C6Dzvnr")
+                .set(data, SetOptions.merge())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("db", "DocumentSnapshot added with ID: " + documentReference.getId());
+                    public void onSuccess(Void aVoid) {
+                        Log.d("db", "DocumentSnapshot successfully written!");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("db", "Error adding document", e);
+                        Log.w("db", "Error writing document", e);
                     }
                 });
+
     }
 
     @Override
@@ -141,7 +157,7 @@ public class SwipeFragment extends Fragment {
 
             @Override
             public void onRightCardExit(Object o) {
-                likePet();
+                readUser("V55wAs8ZTFCo9C6Dzvnr", "/Pet/RmSC0pgXL6UaMvcl9bNG");
                 Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
             }
 
