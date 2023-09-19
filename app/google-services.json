@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "29565258274",
+    "firebase_url": "https://pethome-24dfc-default-rtdb.firebaseio.com",
+    "project_id": "pethome-24dfc",
+    "storage_bucket": "pethome-24dfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29565258274:android:831452e406f073b796987b",
+        "android_client_info": {
+          "package_name": "com.company.pethome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDntxIrPpJkPki-OrqeZUNiTO7wdgkWp38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29565258274:android:ed089716cd5eb5d996987b",
+        "android_client_info": {
+          "package_name": "com.example.pethome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDntxIrPpJkPki-OrqeZUNiTO7wdgkWp38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
