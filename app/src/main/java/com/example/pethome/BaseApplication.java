@@ -21,6 +21,7 @@ public class BaseApplication extends AppCompatActivity
     ChatFragment chatFragment = new ChatFragment();
     ProfileFragment profileFragment = new ProfileFragment();
     VetFragment vetFragment = new VetFragment();
+    SwipeFragment swipeFragment = new SwipeFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -56,7 +57,7 @@ public class BaseApplication extends AppCompatActivity
             case R.id.home:
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.flFragment, vetFragment)
+                        .replace(R.id.flFragment, swipeFragment)
                         .commit();
                 return true;
 
