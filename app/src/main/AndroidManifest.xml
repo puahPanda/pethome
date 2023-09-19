@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetHome.Main"
         tools:targetApi="31">
+        <activity
+            android:name=".GoogleProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".ApptVetServiceLocation"
             android:exported="false" />
@@ -25,13 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".BaseApplication"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Login"
             android:exported="false" />
@@ -49,7 +51,13 @@
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.PetHome" />
+            android:theme="@style/Theme.PetHome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".RegistrationActivity"
             android:configChanges="orientation"
@@ -65,7 +73,6 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.PetHome" />
-
         <!--
         <activity
         android:name=".vet_page"
@@ -73,7 +80,6 @@
         android:exported="true"
         android:screenOrientation="portrait" />
         -->
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

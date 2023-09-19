@@ -1,14 +1,21 @@
 package com.example.pethome;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.io.*;
 
 public class BaseApplication extends AppCompatActivity
@@ -22,7 +29,7 @@ public class BaseApplication extends AppCompatActivity
     ProfileFragment profileFragment = new ProfileFragment();
     VetFragment vetFragment = new VetFragment();
     SwipeFragment swipeFragment = new SwipeFragment();
-
+    Button AB_Settings;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -39,6 +46,10 @@ public class BaseApplication extends AppCompatActivity
                 .setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
+        SharedPreferences preferences = this.getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String uid = preferences.getString("uid","");
+        Log.d("Session", "onCreate: uid = " + uid);
+//        String userEmail = preferences.getString("useremail", "");
     }
 
     @Override
@@ -84,23 +95,28 @@ public class BaseApplication extends AppCompatActivity
     }
 
     //actionbar item onClick()
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_settings:
-//                // User chose the "Settings" item, show the app settings UI...
-//                return true;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.AB_Settings:
+                    FirebaseAuth.getInstance().signOut();
+                    goToMainActivity();
+                return true;
 //
 //            case R.id.action_favorite:
 //                // User chose the "Favorite" action, mark the current item
 //                // as a favorite...
 //                return true;
-//
-//            default:
-//                // If we got here, the user's action was not recognized.
-//                // Invoke the superclass to handle it.
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    private void goToMainActivity() {
+        startActivity(new Intent(BaseApplication.this, MainActivity.class));
+    }
 }

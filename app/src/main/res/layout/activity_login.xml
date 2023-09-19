@@ -33,43 +33,6 @@
             android:layout_weight="1"
             android:fontFamily="@font/inter_semibold"
             android:gravity="bottom"
-            android:text="My number is"
-            android:textColor="#010001"
-            android:textSize="28dp"></TextView>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="5">
-
-            <Spinner
-                android:id="@+id/numberSpinner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:entries="@array/number_options" />
-
-            <EditText
-                android:id="@+id/numberEditText"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:fontFamily="@font/inter"
-                android:hint="0000 0000"
-                android:inputType="number"
-                android:maxLength="8"
-                android:textSize="17dp" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter_semibold"
-            android:gravity="bottom"
             android:text="Email"
             android:textColor="#010001"
             android:textSize="28dp"></TextView>
@@ -99,8 +62,8 @@
             android:id="@+id/passwordET"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:hint="********"
             android:layout_weight="1"
+            android:hint="********"
             android:fontFamily="@font/inter"
             android:inputType="textPassword"
             android:textSize="17dp" />
@@ -108,19 +71,28 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="2"></Space>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/registerButton"
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@drawable/green_button_bg"
             android:clickable="true"
             android:fontFamily="@font/inter_bold"
-            android:text="Register"
+            android:text="Login"
             android:textColor="@color/white"
             android:textSize="18dp" />
+        <TextView
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="16dp"
+            android:text="Forogt Password"
+            android:textColor="#65A5F0"
+            android:textAlignment="center"></TextView>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>

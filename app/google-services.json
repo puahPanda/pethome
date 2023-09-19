@@ -15,7 +15,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+          "client_id": "29565258274-4ptbov2qiskrig9sndutc6904f1adcek.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -28,7 +28,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+              "client_id": "29565258274-4ptbov2qiskrig9sndutc6904f1adcek.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -44,7 +44,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+          "client_id": "29565258274-9otrnb12fkmqhuhrl4d2t28rj72n71rh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pethome",
+            "certificate_hash": "049f549653d7badda5620b644cfec8e171a26d2e"
+          }
+        },
+        {
+          "client_id": "29565258274-4ptbov2qiskrig9sndutc6904f1adcek.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -57,7 +65,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "29565258274-h9rl70co8v26s2knq37o1f42ctoolgv3.apps.googleusercontent.com",
+              "client_id": "29565258274-4ptbov2qiskrig9sndutc6904f1adcek.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
