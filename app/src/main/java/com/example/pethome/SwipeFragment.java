@@ -1,7 +1,11 @@
 package com.example.pethome;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +13,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +46,7 @@ public class SwipeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private FirebaseFirestore db;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -58,6 +69,32 @@ public class SwipeFragment extends Fragment {
         // Required empty public constructor
     }
 
+
+    private void likePet(){
+        //TODO add to database with current userID
+        // Create a new user with a first and last name
+        Map<String, Object> user = new HashMap<>();
+        user.put("first", "Ada");
+        user.put("last", "Lovelace");
+        user.put("born", 1815);
+
+        // Add a new document with a generated ID
+        db.collection("User")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("db", "DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("db", "Error adding document", e);
+                    }
+                });
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +110,7 @@ public class SwipeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_swipe, container, false);
         flingAdapterView=view.findViewById(R.id.swipe);
-
+        db = FirebaseFirestore.getInstance();
         LayoutInflater inflater2 = getLayoutInflater();
         View anotherLayout = inflater2.inflate(R.layout.item, null);
         like=anotherLayout.findViewById(R.id.like);
@@ -104,7 +141,7 @@ public class SwipeFragment extends Fragment {
 
             @Override
             public void onRightCardExit(Object o) {
-
+                likePet();
                 Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
             }
 
