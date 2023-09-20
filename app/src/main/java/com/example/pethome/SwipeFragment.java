@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +23,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.google.firebase.firestore.CollectionReference;
+
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +47,10 @@ public class SwipeFragment extends Fragment {
     SwipeFlingAdapterView flingAdapterView;
     ImageView like,dislike;
 
+    TextView petname;
+
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -49,7 +60,7 @@ public class SwipeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private FirebaseFirestore db;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -127,16 +138,77 @@ public class SwipeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_swipe, container, false);
         flingAdapterView=view.findViewById(R.id.swipe);
         db = FirebaseFirestore.getInstance();
+        CollectionReference collectionRef = db.collection("Pet");
         LayoutInflater inflater2 = getLayoutInflater();
         View anotherLayout = inflater2.inflate(R.layout.item, null);
         like=anotherLayout.findViewById(R.id.like);
         dislike=anotherLayout.findViewById(R.id.dislike);
+        petname=view.findViewById(R.id.petnameid);
 
+
+
+        String documentId = "RmSC0pgXL6UaMvcl9bNG";
+
+
+        ListenerRegistration listenerRegistration = collectionRef.document(documentId)
+                .addSnapshotListener((documentSnapshot, e) -> {
+                    if (e != null) {
+                        // Handle any errors that occurred during the listener registration
+                        return;
+                    }
+
+                    if (documentSnapshot != null && documentSnapshot.exists()) {
+                        // Get the data from "field1"
+                        String field1Data = documentSnapshot.getString("Name");
+
+                        // Now you can use field1Data in your application
+                        // Example: display it in a TextView
+
+                    } else {
+                        // The document does not exist or has been deleted
+                    }
+
+                });
+
+
+        PetFunction.readCollectionAndReturnNames("Pet", new PetFunction.FirestoreDataCallback() {
+            @Override
+            public void onDataReceived(List<String> names) {
+                String a="";
+                for (String name : names) {
+                    a+=name;
+                }
+                // Handle the names list, which contains "Name" field values from each document
+
+            }
+
+            @Override
+            public void onError(Exception e) {
+                // Handle errors here
+            }
+        });
+
+
+        String extractedData = petname.getText().toString();
+
+        String[] parts = extractedData.split("(?=[A-Z])");
+        
+        // Add the split strings to the ArrayList
         data=new ArrayList<>();
         data.add("Joshua");
         data.add("Mary");
         data.add("Elicia");
         data.add("David");
+
+
+
+
+
+
+
+
+
+
 
         arrayAdapter=new ArrayAdapter<>(getContext(), R.layout.item, R.id.data, data);
 
