@@ -48,6 +48,8 @@ public class SwipeFragment extends Fragment {
     ImageView like,dislike;
 
     TextView petname;
+    Integer count;
+    String[]petids = {"jT44R9VIsaolRNNxCOkr", "RmSC0pgXL6UaMvcl9bNG", "u4rlGVHHG3gCknz1mO4c", "xgCa73GNI1A4DhZtmsZh", "yuigRukodFMhTxQB3EWq"};;
 
 
 
@@ -135,6 +137,7 @@ public class SwipeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        count=0;
         View view = inflater.inflate(R.layout.fragment_swipe, container, false);
         flingAdapterView=view.findViewById(R.id.swipe);
         db = FirebaseFirestore.getInstance();
@@ -229,7 +232,10 @@ public class SwipeFragment extends Fragment {
 
             @Override
             public void onRightCardExit(Object o) {
-                readUser("V55wAs8ZTFCo9C6Dzvnr", "xgCa73GNI1A4DhZtmsZh");
+
+                Log.d("petid", "onRightCardExit petid: " + petids[0] + " " + petids[count]);
+                readUser("V55wAs8ZTFCo9C6Dzvnr", petids[count]);
+                count++;
                 Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
             }
 
