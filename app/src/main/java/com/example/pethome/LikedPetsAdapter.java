@@ -10,13 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.ViewHolder> {
 
     Context context;
 
-    String [] names;
+    List<String> names;
 
-    String [] age;
+    List<Integer> age;
     int [] images;
 
     @NonNull
@@ -31,13 +33,13 @@ public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.leftImage.setImageResource(images[position]);
-        holder.leftName.setText(names[position]);
-        holder.leftAge.setText(age[position]);
+        holder.leftName.setText(names.get(position));
+        holder.leftAge.setText(age.get(position).toString() + "M");
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return names.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -52,7 +54,7 @@ public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.View
         }
     }
 
-    public LikedPetsAdapter(Context context, String[] names, String[] age, int[] images) {
+    public LikedPetsAdapter(Context context, List<String>names, List<Integer>age, int[] images) {
         this.context = context;
         this.names = names;
         this.age = age;

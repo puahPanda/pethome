@@ -229,7 +229,7 @@ public class SwipeFragment extends Fragment {
 
             @Override
             public void onRightCardExit(Object o) {
-                readUser("V55wAs8ZTFCo9C6Dzvnr", "/Pet/RmSC0pgXL6UaMvcl9bNG");
+                readUser("V55wAs8ZTFCo9C6Dzvnr", "xgCa73GNI1A4DhZtmsZh11");
                 Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
             }
 
