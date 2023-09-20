@@ -42,12 +42,11 @@ import java.util.Map;
  *
  */
 public class SwipeFragment extends Fragment {
-    private ArrayAdapter<String> arrayAdapter;
-    List<String> data;
+    private ArrayAdapter<Pet> arrayAdapter;
+    List<Pet> data;
     SwipeFlingAdapterView flingAdapterView;
     ImageView like,dislike;
 
-    TextView petname;
     Integer count;
     String[]petids = {"jT44R9VIsaolRNNxCOkr", "RmSC0pgXL6UaMvcl9bNG", "u4rlGVHHG3gCknz1mO4c", "xgCa73GNI1A4DhZtmsZh", "yuigRukodFMhTxQB3EWq"};;
 
@@ -146,62 +145,10 @@ public class SwipeFragment extends Fragment {
         View anotherLayout = inflater2.inflate(R.layout.item, null);
         like=anotherLayout.findViewById(R.id.like);
         dislike=anotherLayout.findViewById(R.id.dislike);
-        petname=view.findViewById(R.id.petnameid);
 
-
-
-        String documentId = "RmSC0pgXL6UaMvcl9bNG";
-
-
-        ListenerRegistration listenerRegistration = collectionRef.document(documentId)
-                .addSnapshotListener((documentSnapshot, e) -> {
-                    if (e != null) {
-                        // Handle any errors that occurred during the listener registration
-                        return;
-                    }
-
-                    if (documentSnapshot != null && documentSnapshot.exists()) {
-                        // Get the data from "field1"
-                        String field1Data = documentSnapshot.getString("Name");
-
-                        // Now you can use field1Data in your application
-                        // Example: display it in a TextView
-
-                    } else {
-                        // The document does not exist or has been deleted
-                    }
-
-                });
-
-
-        PetFunction.readCollectionAndReturnNames("Pet", new PetFunction.FirestoreDataCallback() {
-            @Override
-            public void onDataReceived(List<String> names) {
-                String a="";
-                for (String name : names) {
-                    a+=name;
-                }
-                // Handle the names list, which contains "Name" field values from each document
-
-            }
-
-            @Override
-            public void onError(Exception e) {
-                // Handle errors here
-            }
-        });
-
-
-        String extractedData = petname.getText().toString();
-
-        String[] parts = extractedData.split("(?=[A-Z])");
         
         // Add the split strings to the ArrayList
-        data=new ArrayList<>();
-        data.add("Joshua");
-        data.add("Mary");
-        data.add("Elicia");
-        data.add("David");
+        data=new ArrayList<Pet>();
 
 
 
@@ -212,8 +159,8 @@ public class SwipeFragment extends Fragment {
 
 
 
+        arrayAdapter = new arrayAdapter(getContext(), R.layout.item, data);
 
-        arrayAdapter=new ArrayAdapter<>(getContext(), R.layout.item, R.id.data, data);
 
         flingAdapterView.setAdapter(arrayAdapter);
 
@@ -249,6 +196,39 @@ public class SwipeFragment extends Fragment {
 
             }
         });
+
+
+
+
+
+
+        collectionRef
+                .addSnapshotListener((querySnapshot, error) -> {
+                    if (error != null) {
+                        // Handle error
+                        return;
+                    }
+
+                    for (QueryDocumentSnapshot document : querySnapshot) {
+                        String imageUrl = "default";
+                        if (document.contains("ImageUrl")) {
+                            imageUrl = document.getString("ImageUrl");
+                        }
+
+                        Pet pet_item = new Pet(document.getString("Name"), imageUrl);
+                        data.add(pet_item);
+                    }
+
+                    // Notify your adapter (you should replace 'arrayAdapter' with your actual adapter)
+                    arrayAdapter.notifyDataSetChanged();
+                });
+
+
+
+
+
+
+
 
         flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override

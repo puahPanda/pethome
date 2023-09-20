@@ -39,6 +39,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx:24.8.1'
 
     implementation 'com.google.firebase:firebase-auth:22.1.2'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.2.1'
+
 
     testImplementation 'junit:junit:4.13.2'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'

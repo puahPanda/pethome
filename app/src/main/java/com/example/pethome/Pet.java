@@ -7,17 +7,25 @@ public class Pet {
     private String Name;
     private String Owner;
     private boolean Vaccine;
+    private String ImageUrl;
 
     public Pet() {
+
     }
 
-    public Pet(Integer age, String breed, String gender, String name, String owner, boolean vaccine) {
+    public Pet (String name, String imageUrl){
+        Name = name;
+        ImageUrl = imageUrl;
+    }
+    public Pet(Integer age, String breed, String gender, String name, String owner, boolean vaccine, String imageUrl) {
         Age = age;
         Breed = breed;
         Gender = gender;
         Name = name;
         Owner = owner;
         Vaccine = vaccine;
+        ImageUrl = imageUrl;
+
     }
 
     public Integer getAge() {
@@ -67,4 +75,9 @@ public class Pet {
     public void setVaccine(boolean vaccine) {
         Vaccine = vaccine;
     }
+
+    public String getImageUrl(){
+        return ImageUrl;
+    }
+    public void setImageUrl(String imageUrl){ ImageUrl = imageUrl; }
 }

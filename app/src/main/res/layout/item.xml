@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/image1"
+        android:id="@+id/petimage"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="text in here"
-                android:id="@+id/data"
+                android:id="@+id/petname"
                 android:gravity="center"
                 android:textSize="30sp"
                 android:textColor="@color/white"/>
