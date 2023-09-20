@@ -2,8 +2,8 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/AB_Notification"
-        android:icon="@drawable/button_noti"
+        android:id="@+id/AB_filter"
+        android:icon="@drawable/filter"
         android:title="Notification"
         android:visible="true"
         app:showAsAction="always" />
