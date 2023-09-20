@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -141,10 +142,11 @@ public class SwipeFragment extends Fragment {
         flingAdapterView=view.findViewById(R.id.swipe);
         db = FirebaseFirestore.getInstance();
         CollectionReference collectionRef = db.collection("Pet");
-        LayoutInflater inflater2 = getLayoutInflater();
-        View anotherLayout = inflater2.inflate(R.layout.item, null);
-        like=anotherLayout.findViewById(R.id.like);
-        dislike=anotherLayout.findViewById(R.id.dislike);
+        //LayoutInflater inflater2 = getLayoutInflater();
+        //View anotherLayout = inflater2.inflate(R.layout.item, null);
+
+        like=view.findViewById(R.id.like);
+        dislike=view.findViewById(R.id.dislike);
 
         
         // Add the split strings to the ArrayList
@@ -250,6 +252,8 @@ public class SwipeFragment extends Fragment {
                 flingAdapterView.getTopCardListener().selectLeft();
             }
         });
+
+
         return view;
 
     }

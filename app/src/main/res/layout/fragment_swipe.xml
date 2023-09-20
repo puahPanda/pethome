@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SwipeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/petnameid"/>
-
-
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:rotation_degrees="15.0"/>
+        app:rotation_degrees="15.0" />
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/dislike"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/dislike"
+            android:scaleType="centerCrop"
+            android:layout_alignParentStart="true"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/info"
+            android:scaleType="centerCrop"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/like"
+            android:scaleType="centerCrop"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>
