@@ -1,6 +1,7 @@
 package com.example.pethome;
 
 public class Pet {
+
     private Integer Age;
     private String Breed;
     private String Gender;
@@ -9,13 +10,18 @@ public class Pet {
     private boolean Vaccine;
     private String ImageUrl;
 
+
     public Pet() {
 
     }
 
-    public Pet (String name, String imageUrl){
+    public Pet (String name, String imageUrl, String breed, String gender, Integer age, boolean vaccine){
+        Vaccine = vaccine;
+        Age = age;
         Name = name;
         ImageUrl = imageUrl;
+        Breed = breed;
+        Gender = gender;
     }
     public Pet(Integer age, String breed, String gender, String name, String owner, boolean vaccine, String imageUrl) {
         Age = age;

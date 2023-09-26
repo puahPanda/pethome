@@ -216,8 +216,9 @@ public class SwipeFragment extends Fragment {
                         if (document.contains("ImageUrl")) {
                             imageUrl = document.getString("ImageUrl");
                         }
+                        Integer age = document.getLong("Age").intValue();
 
-                        Pet pet_item = new Pet(document.getString("Name"), imageUrl);
+                        Pet pet_item = new Pet(document.getString("Name"), imageUrl, document.getString("Breed"), document.getString("Gender"), age, document.getBoolean("Vaccine"));
                         data.add(pet_item);
                     }
 

@@ -34,9 +34,17 @@ public class arrayAdapter extends ArrayAdapter<Pet>{
         }
 
         TextView name = (TextView) convertView.findViewById(R.id.petname);
+        TextView age = (TextView) convertView.findViewById(R.id.petage);
+        TextView info = (TextView) convertView.findViewById(R.id.petinfo);
         ImageView image = (ImageView) convertView.findViewById(R.id.petimage);
 
         name.setText(pet_item.getName());
+        age.setText(pet_item.getAge().toString() + " months");
+        if(pet_item.isVaccine()) {
+            info.setText(pet_item.getGender() + ", " + pet_item.getBreed() + ", Vaccinated");
+        } else {
+            info.setText(pet_item.getGender() + ", " + pet_item.getBreed() + ", Non-vaccinated");
+        }
         switch(pet_item.getImageUrl()){
             case "default":
                 Glide.with(convertView.getContext()).load(R.mipmap.ic_launcher).into(image);
