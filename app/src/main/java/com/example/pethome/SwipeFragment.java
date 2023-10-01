@@ -152,17 +152,7 @@ public class SwipeFragment extends Fragment {
         // Add the split strings to the ArrayList
         data=new ArrayList<Pet>();
 
-
-
-
-
-
-
-
-
-
         arrayAdapter = new arrayAdapter(getContext(), R.layout.item, data);
-
 
         flingAdapterView.setAdapter(arrayAdapter);
 
@@ -200,10 +190,6 @@ public class SwipeFragment extends Fragment {
         });
 
 
-
-
-
-
         collectionRef
                 .addSnapshotListener((querySnapshot, error) -> {
                     if (error != null) {
@@ -225,11 +211,6 @@ public class SwipeFragment extends Fragment {
                     // Notify your adapter (you should replace 'arrayAdapter' with your actual adapter)
                     arrayAdapter.notifyDataSetChanged();
                 });
-
-
-
-
-
 
 
 

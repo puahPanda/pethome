@@ -75,6 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn1_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dog"
@@ -83,9 +84,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn1_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cat"
@@ -93,9 +96,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn1_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Others"
@@ -103,7 +108,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
@@ -133,6 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn2_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Male"
@@ -141,9 +148,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn2_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female"
@@ -151,9 +160,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn2_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Neutered"
@@ -161,7 +172,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
@@ -248,6 +260,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn3_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Yes"
@@ -256,9 +269,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn3_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Doesn't matter"
@@ -266,7 +281,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
@@ -296,6 +312,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn4_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Yes"
@@ -304,9 +321,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn4_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Doesn't matter"
@@ -314,7 +333,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
