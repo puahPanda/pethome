@@ -44,6 +44,8 @@
             android:name=".profile_page"
             android:exported="false" />
         <activity
+            android:name=".EditProfileActivity" />
+        <activity
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
