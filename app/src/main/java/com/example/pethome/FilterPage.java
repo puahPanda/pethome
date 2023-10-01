@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.view.View;
+import android.content.Intent;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -181,6 +182,11 @@ public class FilterPage extends AppCompatActivity {
                         Log.e("Firestore", "Error filtering pet data: " + e.getMessage());
                     }
                 });
+    }
+
+    public void onSubmitButtonClick(View view) {
+        Intent intent = new Intent(this, SwipeFragment.class);
+        startActivity(intent);
     }
 
 
