@@ -152,17 +152,7 @@ public class SwipeFragment extends Fragment {
         // Add the split strings to the ArrayList
         data=new ArrayList<Pet>();
 
-
-
-
-
-
-
-
-
-
         arrayAdapter = new arrayAdapter(getContext(), R.layout.item, data);
-
 
         flingAdapterView.setAdapter(arrayAdapter);
 
@@ -200,10 +190,6 @@ public class SwipeFragment extends Fragment {
         });
 
 
-
-
-
-
         collectionRef
                 .addSnapshotListener((querySnapshot, error) -> {
                     if (error != null) {
@@ -228,11 +214,6 @@ public class SwipeFragment extends Fragment {
 
 
 
-
-
-
-
-
         flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int i, Object o) {
@@ -253,7 +234,6 @@ public class SwipeFragment extends Fragment {
                 flingAdapterView.getTopCardListener().selectLeft();
             }
         });
-
 
         return view;
 
