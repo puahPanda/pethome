@@ -1,8 +1,11 @@
 package com.example.pethome;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
+    public String name, image, email, token, id;
+
     private String Name;
     private List<String> Likes;
     private String Address;
