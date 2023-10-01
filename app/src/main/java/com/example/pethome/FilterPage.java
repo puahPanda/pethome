@@ -184,10 +184,6 @@ public class FilterPage extends AppCompatActivity {
                 });
     }
 
-    public void onSubmitButtonClick(View view) {
-        Intent intent = new Intent(this, SwipeFragment.class);
-        startActivity(intent);
-    }
-
+ 
 
 }
