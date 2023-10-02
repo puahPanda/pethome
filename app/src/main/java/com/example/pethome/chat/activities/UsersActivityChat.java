@@ -22,18 +22,16 @@ public class UsersActivityChat extends BaseActivityChat implements UserListener 
     private PreferenceManager preferenceManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityUsersBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        preferenceManager = new PreferenceManager(getApplicationContext());
-        setListeners();
+        preferenceManager = new PreferenceManager(getContext());
+//        setListeners();
         getUsers();
     }
 
-    private void setListeners() {
-        binding.imageBack.setOnClickListener(v -> onBackPressed());
-    }
+//    private void setListeners() {
+//        binding.imageBack.setOnClickListener(v -> onBackPressed());
+//    }
 
     private void getUsers() {
         loading(true);
@@ -85,9 +83,9 @@ public class UsersActivityChat extends BaseActivityChat implements UserListener 
 
     @Override
     public void onUserClicked(User user) {
-        Intent intent = new Intent(getApplicationContext(), ChatActivityChat.class);
+        Intent intent = new Intent(getContext(), ChatActivityChat.class);
         intent.putExtra(Constants.KEY_USER, user);
         startActivity(intent);
-        finish();
+        getActivity().finish();
     }
 }

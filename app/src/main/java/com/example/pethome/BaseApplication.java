@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.pethome.chat.activities.BaseActivityChat;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +26,7 @@ public class BaseApplication extends AppCompatActivity
     BottomNavigationView bottomNavigationView;
     MaterialToolbar myToolbar;
     LikesFragment likesFragment = new LikesFragment();
-    ChatFragment chatFragment = new ChatFragment();
+    BaseActivityChat chatFragment = new BaseActivityChat();
     ProfileFragment profileFragment = new ProfileFragment();
     VetFragment vetFragment = new VetFragment();
     SwipeFragment swipeFragment = new SwipeFragment();
