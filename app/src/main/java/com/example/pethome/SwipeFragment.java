@@ -44,7 +44,9 @@ import java.util.Map;
  */
 public class SwipeFragment extends Fragment {
     private ArrayAdapter<Pet> arrayAdapter;
-    List<Pet> data;
+    private List<Pet> data;
+    private List<Pet> filter_data;
+
     SwipeFlingAdapterView flingAdapterView;
     ImageView like,dislike;
 
@@ -84,6 +86,11 @@ public class SwipeFragment extends Fragment {
     public SwipeFragment() {
         // Required empty public constructor
     }
+    public SwipeFragment(List<Pet> filter_data) {
+        // Required empty public constructor
+        this.data=filter_data;
+    }
+
 
 
     private void readUser(String userID, String petString) {
@@ -150,11 +157,41 @@ public class SwipeFragment extends Fragment {
 
         
         // Add the split strings to the ArrayList
-        data=new ArrayList<Pet>();
 
-        arrayAdapter = new arrayAdapter(getContext(), R.layout.item, data);
 
-        flingAdapterView.setAdapter(arrayAdapter);
+        if (filter_data != null && !filter_data.isEmpty()) {
+            arrayAdapter = new arrayAdapter(getContext(), R.layout.item, filter_data);
+            flingAdapterView.setAdapter(arrayAdapter);
+        } else {
+
+            data = new ArrayList<Pet>();
+
+            collectionRef
+                    .addSnapshotListener((querySnapshot, error) -> {
+                        if (error != null) {
+                            // Handle error
+                            return;
+                        }
+
+                        for (QueryDocumentSnapshot document : querySnapshot) {
+                            String imageUrl = "default";
+                            if (document.contains("ImageUrl")) {
+                                imageUrl = document.getString("ImageUrl");
+                            }
+                            Integer age = document.getLong("Age").intValue();
+
+                            Pet pet_item = new Pet(document.getString("Name"), imageUrl, document.getString("Breed"), document.getString("Gender"), age, document.getBoolean("Vaccine"));
+                            data.add(pet_item);
+                        }
+
+                        // Notify your adapter (you should replace 'arrayAdapter' with your actual adapter)
+                        arrayAdapter.notifyDataSetChanged();
+                    });
+
+            arrayAdapter = new arrayAdapter(getContext(), R.layout.item, data);
+
+            flingAdapterView.setAdapter(arrayAdapter);
+        }
 
         flingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
@@ -188,31 +225,6 @@ public class SwipeFragment extends Fragment {
 
             }
         });
-
-
-        collectionRef
-                .addSnapshotListener((querySnapshot, error) -> {
-                    if (error != null) {
-                        // Handle error
-                        return;
-                    }
-
-                    for (QueryDocumentSnapshot document : querySnapshot) {
-                        String imageUrl = "default";
-                        if (document.contains("ImageUrl")) {
-                            imageUrl = document.getString("ImageUrl");
-                        }
-                        Integer age = document.getLong("Age").intValue();
-
-                        Pet pet_item = new Pet(document.getString("Name"), imageUrl, document.getString("Breed"), document.getString("Gender"), age, document.getBoolean("Vaccine"));
-                        data.add(pet_item);
-                    }
-
-                    // Notify your adapter (you should replace 'arrayAdapter' with your actual adapter)
-                    arrayAdapter.notifyDataSetChanged();
-                });
-
-
 
         flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
