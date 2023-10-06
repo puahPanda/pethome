@@ -2,6 +2,7 @@ package com.example.pethome;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+import com.google.gson.Gson;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -41,7 +42,7 @@ public class FilterPage extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    private List<Pet> filter_data;
+
 
 
 
@@ -134,74 +135,37 @@ public class FilterPage extends AppCompatActivity {
 
 
 
-    public void filterPets() {
-        // Access the "Pet" collection in Firestore
-        CollectionReference petCollection = db.collection("Pet");
-        String selectedPetType = selectedButtonSet1.getText().toString();
-        String selectedPetGender = selectedButtonSet2.getText().toString();
-        filter_data = new ArrayList<Pet>();
 
-
-        // Construct a Firestore query based on filter criteria
-
-
-// Sample filter criteria
-        String genderFilter = "Male"; // Replace with the desired gender
-        String breedFilter = "Toy Poodle"; // Replace with the desired breed
-        //int minAgeFilter = 2; // Replace with the desired minimum age
-
-// Construct the base query
-        Query query = petCollection;
-
-// Filter by Gender (if specified)
-        if (!genderFilter.isEmpty()) {
-            query = query.whereEqualTo("Gender", genderFilter);
-        }
-
-// Filter by Breed (if specified)
-        if (!breedFilter.isEmpty()) {
-            query = query.whereEqualTo("Breed", breedFilter);
-        }
-
-// Filter by Minimum Age (if specified)
-        //if (minAgeFilter > 0) {
-        //    query = query.whereGreaterThanOrEqualTo("Age", minAgeFilter);
-        //}
-
-// Initialize the ArrayList to store the filtered data
-        //ArrayList<Pet> data = new ArrayList<>();
-
-// Execute the query
-        query.get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    filter_data.clear();
-                    // Handle the query results here
-                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        Pet pet = document.toObject(Pet.class);
-                        // Add the pet to the data ArrayList
-                        filter_data.add(pet);
-                    }
-
-
-                    // Now, the data ArrayList contains the filtered pets
-                    // You can use the data ArrayList as needed.
-                })
-                .addOnFailureListener(e -> {
-                    // Handle any errors that occur during the query
-                });
-    }
     public void onSubmitButtonClick(View view) {
         // Add your code here to handle the button click event
         // For example, you can show a toast message:
         Toast.makeText(this, "Submit button clicked", Toast.LENGTH_SHORT).show();
-        new SwipeFragment(filter_data);
-        redirectToBaseApplication();
+
+        Bundle filterArgs = new Bundle();
+        //filterArgs.putString("breed", selectedButtonSet1.getText().toString());
+
+        filterArgs.putString("gender", selectedButtonSet2.getText().toString());
+
+
+        Intent intent = new Intent(this, BaseApplication.class);
+
+// Pass the SwipeFragment instance as an extra to the intent
+        intent.putExtra("showSwipeFragment", true); // To indicate that you want to show the SwipeFragment
+        intent.putExtra("filterArgs", filterArgs); // Pass the Bundle containing filter arguments
+        startActivity(intent);
+        finish();
+
+
+// Navigate to the SwipeFragment
+
     }
 
     public void redirectToBaseApplication() {
         Intent intent = new Intent(this, BaseApplication.class);
+        intent.putExtra("showSwipeFragment", true);
         startActivity(intent);
-        finish(); // Optional: Finish the current activity to remove it from the back stack
+        finish();
+
     }
 
 
