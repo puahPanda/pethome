@@ -37,9 +37,11 @@ public class MainActivityChat extends BaseActivityChat implements ConversionList
     private FirebaseFirestore database;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        preferenceManager = new PreferenceManager(getContext());
+        binding = ActivityMainChatBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        preferenceManager = new PreferenceManager(getApplicationContext());
         init();
         loadUserDetails();
         getToken();
@@ -57,7 +59,7 @@ public class MainActivityChat extends BaseActivityChat implements ConversionList
     private void setListeners(){
         binding.imageSignOut.setOnClickListener(v -> signOut());
         binding.fabNewChat.setOnClickListener(v ->
-                startActivity(new Intent(getContext(), UsersActivityChat.class)));
+                startActivity(new Intent(getApplicationContext(), UsersActivityChat.class)));
     }
 
     private void loadUserDetails() {
@@ -74,7 +76,7 @@ public class MainActivityChat extends BaseActivityChat implements ConversionList
     }
 
     private void showToast(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     private void listenConversations() {
@@ -157,15 +159,15 @@ public class MainActivityChat extends BaseActivityChat implements ConversionList
         documentReference.update(updates)
                 .addOnSuccessListener(unused -> {
                     preferenceManager.clear();
-                    startActivity(new Intent(getContext(), SignInActivity.class));
-                    getActivity().finish();
+                    startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+                    finish();
                 })
                 .addOnFailureListener(e -> showToast("Unable to sign out"));
     }
 
     @Override
     public void onConversionClicked(User user) {
-        Intent intent = new Intent(getContext(), ChatActivityChat.class);
+        Intent intent = new Intent(getApplicationContext(), ChatActivityChat.class);
         intent.putExtra(Constants.KEY_USER, user);
         startActivity(intent);
     }

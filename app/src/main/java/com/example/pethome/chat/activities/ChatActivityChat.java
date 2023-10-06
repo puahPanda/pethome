@@ -3,11 +3,8 @@ package com.example.pethome.chat.activities;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.pethome.R;
 import com.example.pethome.User;
 import com.example.pethome.chat.adapters.ChatAdapter;
 //import com.example.pethome.chat.databinding.ActivityChatBinding;
@@ -45,18 +42,18 @@ public class ChatActivityChat extends BaseActivityChat {
     private Boolean isReceiverAvailable = false;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityChatBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         setListeners();
         loadReceiverDetails();
         init();
         listenMessages();
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_chat, container, false);
     }
 
     private void init() {
-        preferenceManager = new PreferenceManager(getContext());
+        preferenceManager = new PreferenceManager(getApplicationContext());
         chatMessages = new ArrayList<>();
         chatAdapter = new ChatAdapter(
                 chatMessages,
@@ -159,13 +156,13 @@ public class ChatActivityChat extends BaseActivityChat {
         }
     };
     private void loadReceiverDetails() {
-        receiverUser = (User) getActivity().getIntent().getSerializableExtra(Constants.KEY_USER);
+        receiverUser = (User) getIntent().getSerializableExtra(Constants.KEY_USER);
         assert receiverUser != null;
         binding.textName.setText(receiverUser.name);
     }
 
     private void setListeners() {
-//        binding.imageBack.setOnClickListener(v -> onBackPressed());
+        binding.imageBack.setOnClickListener(v -> onBackPressed());
         binding.layoutSend.setOnClickListener(v -> sendMessage());
     }
 
@@ -215,7 +212,7 @@ public class ChatActivityChat extends BaseActivityChat {
     };
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
 //        listenAvailabilityOfReceiver();
     }
