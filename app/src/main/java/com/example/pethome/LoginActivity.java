@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordET = findViewById(R.id.passwordET);
         loginButton = findViewById(R.id.loginButton);
 
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
                                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(LoginActivity.this, BaseApplication.class ));
+                                        startActivity(new Intent(LoginActivity.this, swipe_page.class ));
                                         finish();
 
                                     }
