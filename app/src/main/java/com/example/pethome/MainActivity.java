@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                         if (firebaseAuth.getCurrentUser() == null) {
                             Log.i("firebase", "AuthState changed to null");
+                            logIn();//to push to page (Authstate  !=null unable to be reached)
                         }
                         else {
                             Log.i("firebase", "AuthState changed to "+firebaseAuth.getCurrentUser().getUid());
@@ -115,6 +116,10 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    private void logIn() {
+        Intent logInIntent = new Intent(MainActivity.this,BaseApplication.class);
+        startActivity(logInIntent);
+    }
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -139,11 +144,15 @@ public class MainActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
 
 
+
         googleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
-            }
+
+                }
+
+
         });
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +161,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent registrationIntent = new Intent(MainActivity.this, RegistrationActivity.class);
                 startActivity(registrationIntent);
             }
-        });
+        }
+        );
+
     }
 
 }
