@@ -164,12 +164,24 @@ public class SwipeFragment extends Fragment {
 
 
         if (args != null) {
+            String typeFilter = args.getString("type");
             String genderFilter = args.getString("gender");
+            String vaccineFilter = args.getString("vaccine");
 
             Query query = collectionRef;
 
+            if (typeFilter != null) {
+                query = query.whereEqualTo("Type", typeFilter);
+            }
+
             if (genderFilter != null) {
                 query = query.whereEqualTo("Gender", genderFilter);
+            }
+
+            if (vaccineFilter != null) {
+                if(vaccineFilter == "Yes") {
+                    query = query.whereEqualTo("Vaccine", true);
+                }
             }
 
 

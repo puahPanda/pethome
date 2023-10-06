@@ -139,21 +139,25 @@ public class FilterPage extends AppCompatActivity {
     public void onSubmitButtonClick(View view) {
         // Add your code here to handle the button click event
         // For example, you can show a toast message:
-        Toast.makeText(this, "Submit button clicked", Toast.LENGTH_SHORT).show();
 
-        Bundle filterArgs = new Bundle();
-        //filterArgs.putString("breed", selectedButtonSet1.getText().toString());
+            Toast.makeText(this, "Submit button clicked", Toast.LENGTH_SHORT).show();
 
-        filterArgs.putString("gender", selectedButtonSet2.getText().toString());
+            Bundle filterArgs = new Bundle();
+            filterArgs.putString("type", selectedButtonSet1.getText().toString());
+            filterArgs.putString("gender", selectedButtonSet2.getText().toString());
 
 
-        Intent intent = new Intent(this, BaseApplication.class);
+            filterArgs.putString("vaccine", selectedButtonSet3.getText().toString());
 
-// Pass the SwipeFragment instance as an extra to the intent
-        intent.putExtra("showSwipeFragment", true); // To indicate that you want to show the SwipeFragment
-        intent.putExtra("filterArgs", filterArgs); // Pass the Bundle containing filter arguments
-        startActivity(intent);
-        finish();
+
+            Intent intent = new Intent(this, BaseApplication.class);
+
+            // Pass the SwipeFragment instance as an extra to the intent
+            intent.putExtra("showSwipeFragment", true); // To indicate that you want to show the SwipeFragment
+            intent.putExtra("filterArgs", filterArgs); // Pass the Bundle containing filter arguments
+            startActivity(intent);
+            finish();
+
 
 
 // Navigate to the SwipeFragment

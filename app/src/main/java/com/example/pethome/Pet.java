@@ -4,6 +4,8 @@ public class Pet {
 
     private Integer Age;
     private String Breed;
+
+    private String Type;
     private String Gender;
     private String Name;
     private String Owner;
@@ -23,7 +25,8 @@ public class Pet {
         Breed = breed;
         Gender = gender;
     }
-    public Pet(Integer age, String breed, String gender, String name, String owner, boolean vaccine, String imageUrl) {
+    public Pet(String type, Integer age, String breed, String gender, String name, String owner, boolean vaccine, String imageUrl) {
+        Type = type;
         Age = age;
         Breed = breed;
         Gender = gender;
@@ -48,6 +51,14 @@ public class Pet {
 
     public void setBreed(String breed) {
         Breed = breed;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
     }
 
     public String getGender() {
