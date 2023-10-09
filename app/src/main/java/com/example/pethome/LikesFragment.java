@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,7 +22,12 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -105,6 +111,84 @@ public class LikesFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         readUser("V55wAs8ZTFCo9C6Dzvnr",view);
+
+        // Find the sort button by its ID
+        Button sortAge = view.findViewById(R.id.SortAge);
+
+        // Set an OnClickListener for the sort button
+        sortAge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Sort the liked pets by age
+                Collections.sort(likesList, new Comparator<Pet>() {
+                    @Override
+                    public int compare(Pet pet1, Pet pet2) {
+                        // Compare pets by age
+                        return Integer.compare(pet1.getAge(), pet2.getAge());
+                    }
+                });
+
+                // Update the RecyclerView with the sorted list
+                likedPetsAdapter.notifyDataSetChanged();
+            }
+        });
+
+        // Find the sort button by its ID
+        Button sortLeastRecent = view.findViewById(R.id.sortLeastRecent);
+
+        // Set an OnClickListener for the sort button
+        sortLeastRecent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Sort the liked pets by least recent timestamp
+                Collections.sort(likesList, new Comparator<Pet>() {
+                    @Override
+                    public int compare(Pet pet1, Pet pet2) {
+                        // Compare pets by timestamp (least recent first)
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        try {
+                            Date date1 = dateFormat.parse(pet1.getTimestamp());
+                            Date date2 = dateFormat.parse(pet2.getTimestamp());
+                            return date1.compareTo(date2); // Compare in ascending order
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                            return 0;
+                        }
+                    }
+                });
+
+                // Update the RecyclerView with the sorted list
+                likedPetsAdapter.notifyDataSetChanged();
+            }
+        });
+
+        // Find the sort button by its ID
+        Button sortMostRecent = view.findViewById(R.id.sortMostRecent);
+        // Set an OnClickListener for the sort button
+        sortMostRecent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Sort the liked pets by most recent timestamp
+                Collections.sort(likesList, new Comparator<Pet>() {
+                    @Override
+                    public int compare(Pet pet1, Pet pet2) {
+                        // Compare pets by timestamp (most recent first)
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        try {
+                            Date date1 = dateFormat.parse(pet1.getTimestamp());
+                            Date date2 = dateFormat.parse(pet2.getTimestamp());
+                            return date2.compareTo(date1); // Compare in descending order
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                            return 0;
+                        }
+                    }
+                });
+
+                // Update the RecyclerView with the sorted list
+                likedPetsAdapter.notifyDataSetChanged();
+            }
+        });
 
         return view;
     }

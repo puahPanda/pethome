@@ -1,5 +1,7 @@
 package com.example.pethome;
 
+import java.sql.Timestamp;
+
 public class Pet {
 
     private Integer Age;
@@ -12,9 +14,10 @@ public class Pet {
     private boolean Vaccine;
     private String ImageUrl;
 
+    private String Timestamp;
 
-    public Pet() {
-
+    public Pet(Timestamp timestamp) {
+        Timestamp = timestamp;
     }
 
     public Pet (String name, String imageUrl, String breed, String gender, Integer age, boolean vaccine){
@@ -97,4 +100,9 @@ public class Pet {
         return ImageUrl;
     }
     public void setImageUrl(String imageUrl){ ImageUrl = imageUrl; }
+
+    public String getTimestamp() { return Timestamp;
+    }
+    public void setTimestamp(String timestamp){Timestamp = timestamp;
+}
 }
