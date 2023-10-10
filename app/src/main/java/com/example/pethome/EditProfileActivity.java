@@ -12,6 +12,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -30,15 +31,17 @@ public class EditProfileActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.nameEditText);
         usernameEditText = findViewById(R.id.usernameEditText);
 
-        ImageButton backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EditProfileActivity.this, ProfileFragment.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
+//        AppCompatButton backButton = findViewById(R.id.backButton);
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(EditProfileActivity.this, ProfileFragment.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
 
         pickImageLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
