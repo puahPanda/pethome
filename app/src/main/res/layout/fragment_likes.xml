@@ -32,24 +32,6 @@
             android:src="@drawable/search"></ImageView>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <Button
-        android:id="@+id/sortAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sort by Age" />
-
-    <Button
-        android:id="@+id/sortLeastRecent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sort least recent" />
-
-    <Button
-        android:id="@+id/sortMostRecent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sort most recent" />
-
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -66,7 +48,7 @@
             android:src="@drawable/funnelsimple" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tvSort"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

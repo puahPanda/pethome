@@ -10,36 +10,36 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.ViewHolder> {
 
     Context context;
-
-    List<String> names;
-
-    List<Integer> age;
-    int [] images;
+    View view;
+    List<Pet>likedList;
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.liked_card, parent,false);
+        view = inflater.inflate(R.layout.liked_card, parent,false);
         ViewHolder viewholder = new ViewHolder(view);
         return viewholder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.leftImage.setImageResource(images[position]);
-        holder.leftName.setText(names.get(position));
-        holder.leftAge.setText(age.get(position).toString() + "M");
+        Pet pet_item = likedList.get(position);
+        Glide.with(view).load(pet_item.getImageUrl()).into(holder.leftImage);
+        holder.leftName.setText(pet_item.getName());
+        holder.leftAge.setText(pet_item.getAge() + "M");
     }
 
     @Override
     public int getItemCount() {
-        return names.size();
+        return likedList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -54,11 +54,9 @@ public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.View
         }
     }
 
-    public LikedPetsAdapter(Context context, List<String>names, List<Integer>age, int[] images) {
+    public LikedPetsAdapter(Context context, List<Pet>likedList) {
         this.context = context;
-        this.names = names;
-        this.age = age;
-        this.images = images;
+        this.likedList = likedList;
     }
 
 }
