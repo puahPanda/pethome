@@ -16,7 +16,7 @@
         android:weightSum="10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
+            android:id="@+id/searchTE"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
@@ -31,24 +31,6 @@
             android:layout_weight="1"
             android:src="@drawable/search"></ImageView>
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <Button
-        android:id="@+id/sortAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sort by Age" />
-
-    <Button
-        android:id="@+id/sortLeastRecent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sort least recent" />
-
-    <Button
-        android:id="@+id/sortMostRecent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sort most recent" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -66,7 +48,7 @@
             android:src="@drawable/funnelsimple" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tvSort"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

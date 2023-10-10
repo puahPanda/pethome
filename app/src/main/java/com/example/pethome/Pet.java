@@ -16,6 +16,8 @@ public class Pet {
 
     private String timeStamp;
 
+    public Pet(){}
+
     public Pet(String timestamp) {
         timeStamp = timestamp;
     }
