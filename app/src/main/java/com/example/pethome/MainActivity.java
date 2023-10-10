@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     private Button googleLoginButton;
+    private Button phoneNumberLoginButton;
     private Button registerButton;
 
     private String uid;
@@ -154,6 +155,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
+        Button phoneNumberLoginButton = findViewById(R.id.phoneNumberLoginButton);
+        phoneNumberLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
+            }
+                                                  });
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
