@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,6 +33,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +46,8 @@ public class LikesFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.Adapter likedPetsAdapter;
     RecyclerView.LayoutManager layoutManager;
+    TextInputEditText searchTE;
+    private static final String SORT_NAME = "Sort Name";
     private static final String MOST_RECENT = "Most Recent";
     private static final String AGE = "Age";
     private static final String LEAST_RECENT = "Least Recent";
@@ -178,6 +184,35 @@ public class LikesFragment extends Fragment {
         showView(getView(),petList);
     }
 
+    private void sortName(String searchString){
+        List<Pet>petList = new ArrayList<>();
+
+        Log.d("Search", "sortName: " + searchString);
+        for (Pet p :
+                likesList) {
+
+            Log.d("Search", "sortName > petName: " + p.getName());
+            if (p.getName().toUpperCase().contains(searchString.toUpperCase())) {
+                Log.d("Search", "inside");
+                petList.add(p);
+            }
+        }
+
+
+        // Update the RecyclerView with the sorted list
+        showView(getView(),petList);
+    }
+
+    private void conductSort(String sortType, String searchString){
+
+        switch(sortType){
+            case SORT_NAME:
+                sortName(searchString);
+                break;
+            default:
+                break;
+        }
+    }
 
     private void conductSort(String sortType){
 
@@ -188,8 +223,10 @@ public class LikesFragment extends Fragment {
             case MOST_RECENT:
                 sortMostRecent();
                 break;
-            default:
+            case AGE:
                 sortAge();
+                break;
+            default:
                 break;
         }
     }
@@ -203,6 +240,23 @@ public class LikesFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         readUser("V55wAs8ZTFCo9C6Dzvnr",view);
         tvSort = view.findViewById(R.id.tvSort);
+        searchTE = view.findViewById(R.id.searchTE);
+        searchTE.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                conductSort(SORT_NAME,searchTE.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         // Find the sort button by its ID
 //        Button sortAge = view.findViewById(R.id.SortAge);
