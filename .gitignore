@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+app/src/main/java/com/example/pethome/VetFragment.java
+app/src/main/java/com/example/pethome/Vet_Fragment_Profile.java
+app/src/main/res/layout/fragment_vet.xml
+app/src/main/java/com/example/pethome/VetFragment.java

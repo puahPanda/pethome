@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registration_confirm">
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+    <TextView
+        android:id="@+id/about_me"
+        android:layout_width="132dp"
+        android:layout_height="34dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:text="About me"
+        android:textColor="#010001"
+        android:textSize="28sp" />
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <View
+        android:id="@+id/photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="130dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="127dp"
+        android:background="#D9D9D9" />
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="109.5dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="265dp"
+        android:fontFamily="@font/inter_semibold"
+        android:gravity="top"
+        android:text="Username:"
+        android:textColor="#010001"
+        android:textSize="17sp" />
+
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <TextView
+        android:id="@+id/the_jane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="259dp"
+        android:layout_marginTop="265dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:text="the_jane"
+        android:textColor="#444142"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/display_nam"
+        android:layout_width="151.34dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="312dp"
+        android:text="Display Name:"
+        android:gravity="top"
+        android:textSize="17sp"
+        android:textColor="#010001"
+        />
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <TextView
+        android:id="@+id/jane"
+        android:layout_width="48.74dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="275.26dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="312dp"
+        android:text="Jane"
+        android:gravity="top"
+        android:textSize="17sp"
+        android:textColor="#444142"
+        />
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="41dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="369dp"
+        android:fontFamily="@font/inter"
+        android:gravity="top"
+        android:text="Type"
+        android:textColor="#010001"
+        android:textSize="17sp" />
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="193dp"
+        android:layout_height="42dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="425dp"
+        android:gravity="top"
+        android:letterSpacing="-0.02"
+        android:text="1 Jurong West Central 2, \nSingapore 648886"
+        android:textColor="#444142"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/address_"
+        android:layout_width="74dp"
+        android:layout_height="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="425dp"
+        android:gravity="top"
+        android:text="Address:"
+        android:textColor="#010001"
+        android:textSize="17sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnconfirm"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="86dp"
+        android:layout_weight="1"
+        android:background="@drawable/green_button_bg"
+        android:clickable="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Confirm"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <RadioGroup
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="359dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:text="User" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Shelter" />
+    </RadioGroup>
+
+</RelativeLayout>

@@ -13,6 +13,7 @@ import android.content.Intent;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,11 +30,15 @@ import java.util.ArrayList;
 import android.util.Log;
 
 public class FilterPage extends AppCompatActivity {
+    private Button selectedButtonSet0;
     private Button selectedButtonSet1;
     private Button selectedButtonSet2;
     private Button selectedButtonSet3;
     private Button selectedButtonSet4;
-    private TextView seekBar_text;
+
+    private AppCompatButton reset;
+    private TextView seekBar_text_month;
+    private TextView seekBar_text_year;
     private SeekBar seekBar;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -47,19 +52,40 @@ public class FilterPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter_page);
 
-        seekBar_text = findViewById(R.id.seekbar_text);
+        seekBar_text_month = findViewById(R.id.seekbar_text_month);
+        seekBar_text_year = findViewById(R.id.seekbar_text_year);
         seekBar = findViewById(R.id.seekbar);
+        reset = findViewById(R.id.btn_reset);
 
+        selectedButtonSet0 = null;
         selectedButtonSet1 = null;
         selectedButtonSet2 = null;
         selectedButtonSet3 = null;
         selectedButtonSet4 = null;
 
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                selectedButtonSet0.setBackgroundColor(getResources().getColor(R.color.border_color));
+                selectedButtonSet1.setBackgroundColor(getResources().getColor(R.color.border_color));
+                selectedButtonSet2.setBackgroundColor(getResources().getColor(R.color.border_color));
+                selectedButtonSet3.setBackgroundColor(getResources().getColor(R.color.border_color));
+                selectedButtonSet4.setBackgroundColor(getResources().getColor(R.color.border_color));
+                seekBar.setProgress(0);
+            }
+        });
+
+        seekBar.setMax(20*12); //12 months and cap at 20 years old max.
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                seekBar_text.setText(i + " months");
-            }
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                int years = progress / 12; // it will return years.
+                int months = (progress % 12); // here will be months.
+                seekBar_text_month.setText(months+" months");
+                seekBar_text_year.setText("from "+years+" year");
+                    }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
@@ -70,7 +96,21 @@ public class FilterPage extends AppCompatActivity {
     public void onButtonClick(View view) {
         Button clickedButton = (Button) view;
 
-        if (clickedButton.getId() == R.id.btn1_1 ||
+        if (clickedButton.getId() == R.id.btn0_1 ||
+                clickedButton.getId() == R.id.btn0_2) {
+
+            // Check if a button is already selected in Set 1
+            if (selectedButtonSet0 != null) {
+                selectedButtonSet0.setSelected(false);
+                selectedButtonSet0.setBackgroundColor(getResources().getColor(R.color.border_color));
+            }
+
+            // Set the clicked button as selected in Set 1
+            clickedButton.setSelected(true);
+            selectedButtonSet0 = clickedButton;
+            clickedButton.setBackgroundColor(getResources().getColor(R.color.white));
+
+        } else if (clickedButton.getId() == R.id.btn1_1 ||
                 clickedButton.getId() == R.id.btn1_2 ||
                 clickedButton.getId() == R.id.btn1_3) {
 
