@@ -106,7 +106,7 @@
         app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sterilise" />
-
+    <!--
     <Button
         android:id="@+id/Switch2U"
         android:layout_width="wrap_content"
@@ -116,5 +116,5 @@
         android:text="Switch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>
