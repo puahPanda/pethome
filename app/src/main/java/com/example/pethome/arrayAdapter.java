@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,11 @@ public class arrayAdapter extends ArrayAdapter<Pet>{
     public arrayAdapter(Context context, int resourceId, List<Pet> items){
         super(context, resourceId, items);
     }
+
+    private void openAr(){
+
+    }
+
     public View getView(int position, View convertView, ViewGroup parent){
         Pet pet_item = getItem(position);
 
@@ -34,6 +40,7 @@ public class arrayAdapter extends ArrayAdapter<Pet>{
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
         }
 
+        ImageButton arBtn = (ImageButton) convertView.findViewById(R.id.arBtn);
         TextView name = (TextView) convertView.findViewById(R.id.petname);
         TextView age = (TextView) convertView.findViewById(R.id.petage);
         TextView info = (TextView) convertView.findViewById(R.id.petinfo);
@@ -55,6 +62,13 @@ public class arrayAdapter extends ArrayAdapter<Pet>{
                 Glide.with(convertView.getContext()).load(pet_item.getImageUrl()).into(image);
                 break;
         }
+
+        arBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAr();
+            }
+        });
 
 
         return convertView;
