@@ -25,6 +25,12 @@
             android:name=".registration_confirm"
             android:exported="false" />
         <activity
+            android:name=".FilterSwipe"
+            android:exported="false" />
+        <activity
+            android:name=".swipe_page"
+            android:exported="false" />
+        <activity
             android:name=".GoogleProfileActivity"
             android:exported="false" />
         <activity

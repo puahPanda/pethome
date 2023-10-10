@@ -1,12 +1,15 @@
 package com.example.pethome;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import com.google.gson.Gson;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.view.View;
 import android.content.Intent;
 
@@ -41,10 +44,11 @@ public class FilterPage extends AppCompatActivity {
     private TextView seekBar_text_year;
     private SeekBar seekBar;
 
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private ArrayAdapter<Pet> arrayAdapter;
-    List<Pet> data;
-    SwipeFlingAdapterView flingAdapterView;
+
+
+
 
 
     @Override
@@ -91,6 +95,7 @@ public class FilterPage extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+
     }
 
     public void onButtonClick(View view) {
@@ -170,60 +175,45 @@ public class FilterPage extends AppCompatActivity {
 
 
 
-    private void filterPets(String filterText, String selectedPetType, String selectedPetGender, int minAge, int maxAge) {
-        // Access the "Pet" collection in Firestore
-        CollectionReference petCollection = db.collection("Pet");
 
-        // Construct a Firestore query based on filter criteria
-        Query query = petCollection;
+    public void onSubmitButtonClick(View view) {
+        // Add your code here to handle the button click event
+        // For example, you can show a toast message:
 
-        // Filter by PetType (if selected)
-        if (!selectedPetType.isEmpty()) {
-            query = query.whereEqualTo("PetType", selectedPetType);
-        }
+            Toast.makeText(this, "Submit button clicked", Toast.LENGTH_SHORT).show();
 
-        // Filter by PetGender (if selected)
-        if (!selectedPetGender.isEmpty()) {
-            query = query.whereEqualTo("PetGender", selectedPetGender);
-        }
+            Bundle filterArgs = new Bundle();
+            filterArgs.putString("type", selectedButtonSet1.getText().toString());
+            filterArgs.putString("gender", selectedButtonSet2.getText().toString());
 
-        // Filter by age range (if minAge and maxAge are specified)
-        if (minAge > 0) {
-            query = query.whereGreaterThanOrEqualTo("PetAge", minAge);
-        }
-        if (maxAge > 0) {
-            query = query.whereLessThanOrEqualTo("PetAge", maxAge);
-        }
 
-        // Execute the query
-        query.get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        List<Pet> filteredPets = new ArrayList<>();
+            filterArgs.putString("vaccine", selectedButtonSet3.getText().toString());
 
-                        // Loop through the documents and populate the filteredPets list
-                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                            Pet pet = document.toObject(Pet.class);
-                            filteredPets.add(pet);
-                        }
 
-                        // Update the petList with the filtered results
-                        // petList.clear();
-                        // petList.addAll(filteredPets);
+            Intent intent = new Intent(this, BaseApplication.class);
 
-                        // Notify the ArrayAdapter that the data has changed
-                        // adapter.notifyDataSetChanged();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e("Firestore", "Error filtering pet data: " + e.getMessage());
-                    }
-                });
+            // Pass the SwipeFragment instance as an extra to the intent
+            intent.putExtra("showSwipeFragment", true); // To indicate that you want to show the SwipeFragment
+            intent.putExtra("filterArgs", filterArgs); // Pass the Bundle containing filter arguments
+            startActivity(intent);
+            finish();
+
+
+
+// Navigate to the SwipeFragment
+
     }
 
- 
+    public void redirectToBaseApplication() {
+        Intent intent = new Intent(this, BaseApplication.class);
+        intent.putExtra("showSwipeFragment", true);
+        startActivity(intent);
+        finish();
+
+    }
+
+
+
+
 
 }

@@ -1,18 +1,23 @@
 package com.example.pethome;
 
+import java.sql.Timestamp;
+
 public class Pet {
 
     private Integer Age;
     private String Breed;
+
+    private String Type;
     private String Gender;
     private String Name;
     private String Owner;
     private boolean Vaccine;
     private String ImageUrl;
 
+    private String Timestamp;
 
-    public Pet() {
-
+    public Pet(Timestamp timestamp) {
+        Timestamp = timestamp;
     }
 
     public Pet (String name, String imageUrl, String breed, String gender, Integer age, boolean vaccine){
@@ -23,7 +28,8 @@ public class Pet {
         Breed = breed;
         Gender = gender;
     }
-    public Pet(Integer age, String breed, String gender, String name, String owner, boolean vaccine, String imageUrl) {
+    public Pet(String type, Integer age, String breed, String gender, String name, String owner, boolean vaccine, String imageUrl) {
+        Type = type;
         Age = age;
         Breed = breed;
         Gender = gender;
@@ -48,6 +54,14 @@ public class Pet {
 
     public void setBreed(String breed) {
         Breed = breed;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
     }
 
     public String getGender() {
@@ -86,4 +100,9 @@ public class Pet {
         return ImageUrl;
     }
     public void setImageUrl(String imageUrl){ ImageUrl = imageUrl; }
+
+    public String getTimestamp() { return Timestamp;
+    }
+    public void setTimestamp(String timestamp){Timestamp = timestamp;
+}
 }

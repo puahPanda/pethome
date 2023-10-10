@@ -5,6 +5,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.firestore.Query;
+import com.google.gson.Gson;
+
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,9 +48,13 @@ import java.util.Map;
  */
 public class SwipeFragment extends Fragment {
     private ArrayAdapter<Pet> arrayAdapter;
-    List<Pet> data;
+    private List<Pet> data;
+    private List<Pet> filter_data;
+
+
     SwipeFlingAdapterView flingAdapterView;
     ImageView like,dislike;
+    TextView check;
 
     Integer count;
     String[]petids = {"jT44R9VIsaolRNNxCOkr", "RmSC0pgXL6UaMvcl9bNG", "u4rlGVHHG3gCknz1mO4c", "xgCa73GNI1A4DhZtmsZh", "yuigRukodFMhTxQB3EWq"};;
@@ -84,7 +92,6 @@ public class SwipeFragment extends Fragment {
     public SwipeFragment() {
         // Required empty public constructor
     }
-
 
     private void readUser(String userID, String petString) {
         DocumentReference docRef = db.collection("User").document(userID);
@@ -148,92 +155,204 @@ public class SwipeFragment extends Fragment {
         like=view.findViewById(R.id.like);
         dislike=view.findViewById(R.id.dislike);
 
-        
-        // Add the split strings to the ArrayList
-        data=new ArrayList<Pet>();
 
-        arrayAdapter = new arrayAdapter(getContext(), R.layout.item, data);
+        filter_data = new ArrayList<Pet>();
 
-        flingAdapterView.setAdapter(arrayAdapter);
 
-        flingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
-            @Override
-            public void removeFirstObjectInAdapter() {
-                data.remove(0);
-                arrayAdapter.notifyDataSetChanged();
+            // Construct a Firestore query based on filter criteria
+        Bundle args = getArguments();
+
+
+        if (args != null) {
+            String typeFilter = args.getString("type");
+            String genderFilter = args.getString("gender");
+            String vaccineFilter = args.getString("vaccine");
+
+            Query query = collectionRef;
+
+            if (typeFilter != null) {
+                query = query.whereEqualTo("Type", typeFilter);
             }
 
-            @Override
-            public void onLeftCardExit(Object o) {
-
-                Toast.makeText(getContext(),"dislike",Toast.LENGTH_SHORT).show();
+            if (genderFilter != null) {
+                query = query.whereEqualTo("Gender", genderFilter);
             }
 
-            @Override
-            public void onRightCardExit(Object o) {
-
-                Log.d("petid", "onRightCardExit petid: " + petids[0] + " " + petids[count]);
-                readUser("V55wAs8ZTFCo9C6Dzvnr", petids[count]);
-                count++;
-                Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
+            if (vaccineFilter != null) {
+                if(vaccineFilter == "Yes") {
+                    query = query.whereEqualTo("Vaccine", true);
+                }
             }
 
-            @Override
-            public void onAdapterAboutToEmpty(int i) {
 
-            }
-
-            @Override
-            public void onScroll(float v) {
-
-            }
-        });
-
-
-        collectionRef
-                .addSnapshotListener((querySnapshot, error) -> {
-                    if (error != null) {
-                        // Handle error
-                        return;
-                    }
-
-                    for (QueryDocumentSnapshot document : querySnapshot) {
-                        String imageUrl = "default";
-                        if (document.contains("ImageUrl")) {
-                            imageUrl = document.getString("ImageUrl");
+            query.get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        filter_data.clear();
+                        // Handle the query results here
+                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                            Pet pet = document.toObject(Pet.class);
+                            // Add the pet to the data ArrayList
+                            filter_data.add(pet);
                         }
-                        Integer age = document.getLong("Age").intValue();
+                        arrayAdapter.notifyDataSetChanged();
 
-                        Pet pet_item = new Pet(document.getString("Name"), imageUrl, document.getString("Breed"), document.getString("Gender"), age, document.getBoolean("Vaccine"));
-                        data.add(pet_item);
+
+                        // Now, the data ArrayList contains the filtered pets
+                        // You can use the data ArrayList as needed.
+                    })
+                    .addOnFailureListener(e -> {
+                        // Handle any errors that occur during the query
+                    });
+
+
+
+            // Add the split strings to the ArrayList
+
+
+
+
+                arrayAdapter = new arrayAdapter(getContext(), R.layout.item, filter_data);
+                flingAdapterView.setAdapter(arrayAdapter);
+
+                flingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+                    @Override
+                    public void removeFirstObjectInAdapter() {
+                        filter_data.remove(0);
+                        arrayAdapter.notifyDataSetChanged();
                     }
 
-                    // Notify your adapter (you should replace 'arrayAdapter' with your actual adapter)
-                    arrayAdapter.notifyDataSetChanged();
+                    @Override
+                    public void onLeftCardExit(Object o) {
+
+                        Toast.makeText(getContext(),"dislike",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onRightCardExit(Object o) {
+
+                        Log.d("petid", "onRightCardExit petid: " + petids[0] + " " + petids[count]);
+                        readUser("V55wAs8ZTFCo9C6Dzvnr", petids[count]);
+                        count++;
+                        Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onAdapterAboutToEmpty(int i) {
+
+                    }
+
+                    @Override
+                    public void onScroll(float v) {
+
+                    }
                 });
 
+                flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClicked(int i, Object o) {
+                        Toast.makeText(getContext(), "data is "+filter_data.get(i),Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                like.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        flingAdapterView.getTopCardListener().selectRight();
+                    }
+                });
+
+                dislike.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        flingAdapterView.getTopCardListener().selectLeft();
+                    }
+                });
+        } else {
+
+            data = new ArrayList<Pet>();
+
+            collectionRef
+                    .addSnapshotListener((querySnapshot, error) -> {
+                        if (error != null) {
+                            // Handle error
+                            return;
+                        }
+
+                        for (QueryDocumentSnapshot document : querySnapshot) {
+                            String imageUrl = "default";
+                            if (document.contains("ImageUrl")) {
+                                imageUrl = document.getString("ImageUrl");
+                            }
+                            Integer age = document.getLong("Age").intValue();
+
+                            Pet pet_item = new Pet(document.getString("Name"), imageUrl, document.getString("Breed"), document.getString("Gender"), age, document.getBoolean("Vaccine"));
+                            data.add(pet_item);
+                        }
+
+                        // Notify your adapter (you should replace 'arrayAdapter' with your actual adapter)
+                        arrayAdapter.notifyDataSetChanged();
+                    });
+
+            arrayAdapter = new arrayAdapter(getContext(), R.layout.item, data);
+
+            flingAdapterView.setAdapter(arrayAdapter);
+
+            flingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+                @Override
+                public void removeFirstObjectInAdapter() {
+                    data.remove(0);
+                    arrayAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onLeftCardExit(Object o) {
+
+                    Toast.makeText(getContext(),"dislike",Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onRightCardExit(Object o) {
+
+                    Log.d("petid", "onRightCardExit petid: " + petids[0] + " " + petids[count]);
+                    readUser("V55wAs8ZTFCo9C6Dzvnr", petids[count]);
+                    count++;
+                    Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onAdapterAboutToEmpty(int i) {
+
+                }
+
+                @Override
+                public void onScroll(float v) {
+
+                }
+            });
+
+            flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClicked(int i, Object o) {
+                    Toast.makeText(getContext(), "data is "+data.get(i),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            like.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    flingAdapterView.getTopCardListener().selectRight();
+                }
+            });
+
+            dislike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    flingAdapterView.getTopCardListener().selectLeft();
+                }
+            });
+        }
 
 
-        flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int i, Object o) {
-                Toast.makeText(getContext(), "data is "+data.get(i),Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        like.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                flingAdapterView.getTopCardListener().selectRight();
-            }
-        });
-
-        dislike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                flingAdapterView.getTopCardListener().selectLeft();
-            }
-        });
 
         return view;
 
