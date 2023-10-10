@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.pethome.BaseApplication;
 import com.example.pethome.User;
 import com.example.pethome.chat.adapters.RecentConversionsAdapter;
 import com.example.pethome.databinding.ActivityMainChatBinding;
@@ -148,21 +149,26 @@ public class MainActivityChat extends BaseActivityChat implements ConversionList
     }
 
     private void signOut() {
-        showToast("Signing out...");
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
-        DocumentReference documentReference =
-                database.collection(Constants.KEY_COLLECTION_USERS).document(
-                        preferenceManager.getString(Constants.KEY_USER_ID)
-                );
-        HashMap<String, Object> updates = new HashMap<>();
-        updates.put(Constants.KEY_FCM_TOKEN, FieldValue.delete());
-        documentReference.update(updates)
-                .addOnSuccessListener(unused -> {
-                    preferenceManager.clear();
-                    startActivity(new Intent(getApplicationContext(), SignInActivity.class));
-                    finish();
-                })
-                .addOnFailureListener(e -> showToast("Unable to sign out"));
+//        showToast("Signing out...");
+//        FirebaseFirestore database = FirebaseFirestore.getInstance();
+//        DocumentReference documentReference =
+//                database.collection(Constants.KEY_COLLECTION_USERS).document(
+//                        preferenceManager.getString(Constants.KEY_USER_ID)
+//                );
+//        HashMap<String, Object> updates = new HashMap<>();
+//        updates.put(Constants.KEY_FCM_TOKEN, FieldValue.delete());
+//        documentReference.update(updates)
+//                .addOnSuccessListener(unused -> {
+//                    preferenceManager.clear();
+//                    startActivity(new Intent(getApplicationContext(), SignInActivity.class));
+//                    finish();
+//                })
+//                .addOnFailureListener(e -> showToast("Unable to sign out"));
+
+        Intent intent = new Intent(getApplicationContext(), BaseApplication.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+
     }
 
     @Override
