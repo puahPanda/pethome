@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -48,8 +49,8 @@ import java.util.Map;
  */
 public class SwipeFragment extends Fragment {
     private ArrayAdapter<Pet> arrayAdapter;
-    private List<Pet> data;
-    private List<Pet> filter_data;
+    List<Pet> data = new ArrayList<Pet>();;
+    List<Pet> filter_data = new ArrayList<>();
 
 
     SwipeFlingAdapterView flingAdapterView;
@@ -69,6 +70,8 @@ public class SwipeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ImageButton arBtn;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     /**
@@ -187,10 +190,11 @@ public class SwipeFragment extends Fragment {
 
             query.get()
                     .addOnSuccessListener(queryDocumentSnapshots -> {
-                        filter_data.clear();
                         // Handle the query results here
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             Pet pet = document.toObject(Pet.class);
+                            pet.setId(document.getId().toString());
+                            Log.d("onItemClicked", "onCreateView: ADDING ");
                             // Add the pet to the data ArrayList
                             filter_data.add(pet);
                         }
@@ -230,10 +234,10 @@ public class SwipeFragment extends Fragment {
                     @Override
                     public void onRightCardExit(Object o) {
 
-                        Log.d("petid", "onRightCardExit petid: " + petids[0] + " " + petids[count]);
-                        readUser("V55wAs8ZTFCo9C6Dzvnr", petids[count]);
+                        Pet p = (Pet)o;
+                        readUser("V55wAs8ZTFCo9C6Dzvnr", p.getId());
                         count++;
-                        Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"liked ",Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -250,7 +254,7 @@ public class SwipeFragment extends Fragment {
                 flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClicked(int i, Object o) {
-                        Toast.makeText(getContext(), "data is "+filter_data.get(i),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "data is "+filter_data.get(i).getId(),Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -286,6 +290,7 @@ public class SwipeFragment extends Fragment {
                             Integer age = document.getLong("Age").intValue();
 
                             Pet pet_item = new Pet(document.getString("Name"), imageUrl, document.getString("Breed"), document.getString("Gender"), age, document.getBoolean("Vaccine"));
+                            pet_item.setId(document.getId());
                             data.add(pet_item);
                         }
 
@@ -312,9 +317,9 @@ public class SwipeFragment extends Fragment {
 
                 @Override
                 public void onRightCardExit(Object o) {
+                    Pet p = (Pet)o;
+                    readUser("V55wAs8ZTFCo9C6Dzvnr", p.getId());
 
-                    Log.d("petid", "onRightCardExit petid: " + petids[0] + " " + petids[count]);
-                    readUser("V55wAs8ZTFCo9C6Dzvnr", petids[count]);
                     count++;
                     Toast.makeText(getContext(),"like",Toast.LENGTH_SHORT).show();
                 }
@@ -333,7 +338,8 @@ public class SwipeFragment extends Fragment {
             flingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClicked(int i, Object o) {
-                    Toast.makeText(getContext(), "data is "+data.get(i),Toast.LENGTH_SHORT).show();
+                    Log.d("onItemClicked", "onItemClicked: filterdaat " + data.toString());
+                    Toast.makeText(getContext(), "data is "+data.get(i).getId(),Toast.LENGTH_SHORT).show();
                 }
             });
 
