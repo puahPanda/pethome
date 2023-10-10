@@ -97,6 +97,8 @@ public class LikesFragment extends Fragment {
 
     private void showView(View view, List<Pet>petList){
         recyclerView = view.findViewById(R.id.likesRecyclerView);
+        recyclerView.setAdapter(null);
+        recyclerView.setLayoutManager(null);
         recyclerView.setHasFixedSize(true);
         layoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(layoutManager);
@@ -196,6 +198,7 @@ public class LikesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_likes, container, false);
+        likesList = new ArrayList<>();
 
         db = FirebaseFirestore.getInstance();
         readUser("V55wAs8ZTFCo9C6Dzvnr",view);
