@@ -14,10 +14,10 @@ public class Pet {
     private boolean Vaccine;
     private String ImageUrl;
 
-    private String Timestamp;
+    private String timeStamp;
 
-    public Pet(Timestamp timestamp) {
-        Timestamp = timestamp;
+    public Pet(String timestamp) {
+        timeStamp = timestamp;
     }
 
     public Pet (String name, String imageUrl, String breed, String gender, Integer age, boolean vaccine){
@@ -101,8 +101,9 @@ public class Pet {
     }
     public void setImageUrl(String imageUrl){ ImageUrl = imageUrl; }
 
-    public String getTimestamp() { return Timestamp;
+    public String getTimestamp() { return timeStamp;
     }
-    public void setTimestamp(String timestamp){Timestamp = timestamp;
-}
+    public void setTimestamp(String timestamp){
+        timeStamp = timestamp;
+    }
 }

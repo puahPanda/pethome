@@ -35,7 +35,7 @@ public class ProfileFragment extends Fragment {
         btnswitch2user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToUser = new Intent(getContext(),Vet_Fragment_Profile.class);
+                Intent goToUser = new Intent(getContext(),VetFragmentProfile.class);
                 startActivity(goToUser);
             }
         });
