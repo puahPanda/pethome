@@ -22,7 +22,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
         btn_make_appt = view.findViewById(R.id.btn_make_appt);
-        btnswitch2user = view.findViewById(R.id.Switch2U);
+        //btnswitch2user = view.findViewById(R.id.Switch2U);
 
 
         btn_make_appt.setOnClickListener(new View.OnClickListener() {

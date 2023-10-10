@@ -17,8 +17,7 @@
         android:layout_marginEnd="261dp"
         android:hint="Birb"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edt_adoptionname" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/profile_dp"
@@ -46,103 +45,7 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/btn_cat"
-        android:layout_width="164dp"
-        android:layout_height="176dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="20dp"
-        android:layout_toStartOf="@+id/btn_deworming"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/adoption" />
-
-    <TextView
-        android:id="@+id/edt_adoptionname"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_cat"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="1dp"
-        android:hint="Kitty"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/edt_adoptionname3"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_sterilise"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="-1dp"
-        android:hint="Jason"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/edt_adoptionname2"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_deworming"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="5dp"
-        android:hint="Birb"
-        android:textAlignment="center" />
-
-
-    <TextView
-        android:id="@+id/edt_adoptionname4"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_vaccination"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="215dp"
-        android:layout_marginTop="0dp"
-        android:hint="Sally"
-        android:textAlignment="center" />
-
-    <ImageButton
-        android:id="@+id/btn_vaccination"
-        android:layout_width="163dp"
-        android:layout_height="165dp"
-        android:layout_below="@+id/edt_adoptionname2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="38dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/vaccination" />
-
-    <ImageButton
-        android:id="@+id/btn_sterilise"
-        android:layout_width="162dp"
-        android:layout_height="163dp"
-        android:layout_below="@+id/edt_adoptionname"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="16dp"
-        android:layout_toStartOf="@+id/btn_vaccination"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/sterilise" />
-
-    <ImageButton
-        android:id="@+id/btn_deworming"
-        android:layout_width="161dp"
-        android:layout_height="173dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="187dp"
-        android:layout_marginEnd="38dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/deworming" />
-
+    <!--
     <Button
         android:id="@+id/Switch2V"
         android:layout_width="wrap_content"
@@ -152,6 +55,19 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:text="Switch" />
+    -->
+    <ProgressBar
+        android:id="@+id/progress_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="409dp"
+        android:layout_above="@+id/confirmTimeAppt"
+        android:layout_marginBottom="20dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/confirmTimeAppt"

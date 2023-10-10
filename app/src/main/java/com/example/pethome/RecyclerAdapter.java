@@ -1,49 +1,124 @@
 package com.example.pethome;
 
+import android.content.Context;
 import android.net.Uri;
 import android.text.Layout;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ImageViewHolder> {
+    private Context mContext;
+    private List<Upload> mUploads;
+    private OnItemClickListener mListener;
 
-    private ArrayList<Uri> uriArrayList;
-
-    public RecyclerAdapter(ArrayList<Uri> uriArrayList){
-        this.uriArrayList = uriArrayList;
+    public RecyclerAdapter(Context context,List<Upload> uploads){
+        mContext = context;
+        mUploads = uploads;
     }
+
+
     @NonNull
     @Override
-    public RecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.custom_single_image,parent,false);
-        return new ViewHolder(view);
+    public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(mContext).inflate(R.layout.image_item,parent,false);
+        return new ImageViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
-//        holder.imageView.setImage
+    public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
+        Upload uploadCurrent = mUploads.get(position);
+        holder.textViewName.setText(uploadCurrent.getName());
+        //image into imageview
+        Picasso.get()
+                .load(uploadCurrent.getImageUrl())
+                .fit()
+                .centerCrop()
+                .into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return uriArrayList.size();
+        return mUploads.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        public ViewHolder(@NonNull View itemView) {
+    public void setOnItemClickListener(VetFragmentProfile vetFragmentProfile) {
+    }
+
+
+    public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
+            View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
+        public TextView textViewName;
+        public ImageView imageView;
+        public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.image);
+            textViewName = itemView.findViewById(R.id.text_view_name);
+            imageView = itemView.findViewById(R.id.image_view_upload);
+
+            itemView.setOnClickListener(this);
+            itemView.setOnCreateContextMenuListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            if (mListener != null){
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION){
+                    mListener.onItemClick(position);
+                }
+            }
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            menu.setHeaderTitle("Select Action");
+            MenuItem doWhatever = menu.add(Menu.NONE, 1,1,"Do whatever");
+            MenuItem delete = menu.add(Menu.NONE, 2,2,"Delete");
+
+            doWhatever.setOnMenuItemClickListener(this);
+            delete.setOnMenuItemClickListener(this);
+        }
+
+        @Override
+        public boolean onMenuItemClick(@NonNull MenuItem item) {
+            if (mListener != null){
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION){
+                    switch (item.getItemId()){
+                        case 1:
+                        mListener.onWhatEverClick(position);
+                        return true;
+                        case 2:
+                            mListener.onDeleteClick(position);
+                            return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+        void onWhatEverClick(int position);
+        void onDeleteClick(int position);
+    }
+
+    public void SetOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
     }
 }
