@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class Pet {
 
+    private String Id;
     private Integer Age;
     private String Breed;
 
@@ -40,6 +41,14 @@ public class Pet {
         Vaccine = vaccine;
         ImageUrl = imageUrl;
 
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 
     public Integer getAge() {

@@ -27,7 +27,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
-        btn_make_appt = view.findViewById(R.id.btn_make_appt);
         btnswitch2user = view.findViewById(R.id.Switch2U);
         edit_profile = view.findViewById(R.id.edit_profile);
 
@@ -41,13 +40,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        btn_make_appt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToAppt = new Intent(getContext(), make_appt_pet.class);
-                startActivity(goToAppt);
-            }
-        });
         btnswitch2user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
