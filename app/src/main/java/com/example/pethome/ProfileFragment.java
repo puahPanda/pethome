@@ -31,13 +31,13 @@ public class ProfileFragment extends Fragment {
                 Intent goToAppt = new Intent(getContext(), make_appt_pet.class);
                 startActivity(goToAppt);
             }
-        });
-        btnswitch2user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToUser = new Intent(getContext(),VetFragmentProfile.class);
-                startActivity(goToUser);
-            }
+//        });
+//        btnswitch2user.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent goToUser = new Intent(getContext(),VetFragmentProfile.class);
+//                startActivity(goToUser);
+//            }
         });
         // Inflate the layout for this fragment
         return view;
