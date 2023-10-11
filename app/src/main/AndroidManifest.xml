@@ -51,12 +51,16 @@
             android:configChanges="orientation"
             android:exported="true"
             android:screenOrientation="portrait"
+
+            android:theme="@style/Theme.PetHome">
+
             android:theme="@style/Theme.PetHome" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".RegistrationActivity"
@@ -73,9 +77,48 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.PetHome" />
+
+        <!--
+        <activity
+        android:name=".vet_page"
+        android:configChanges="orientation"
+        android:exported="true"
+        android:screenOrientation="portrait" />
+        -->
+
+        <activity
+            android:name=".chat.activities.ChatActivityChat"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true" />
+        <activity
+            android:name=".chat.activities.UsersActivityChat"
+            android:exported="true" />
+        <activity
+            android:name=".chat.activities.SignUpActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".chat.activities.SignInActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".chat.activities.MainActivityChat" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service
+            android:name=".MessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
