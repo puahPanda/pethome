@@ -19,7 +19,7 @@
             android:name=".AddPet"
             android:exported="false" />
         <activity
-            android:name=".Vet_Fragment_Profile"
+            android:name=".VetFragmentProfile"
             android:exported="false" />
         <activity
             android:name=".registration_confirm"
