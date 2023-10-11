@@ -46,7 +46,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ImageV
         Picasso.get()
                 .load(uploadCurrent.getImageUrl())
                 .fit()
-                .centerCrop()
+                .centerInside()
                 .into(holder.imageView);
     }
 
