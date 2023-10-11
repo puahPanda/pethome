@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     private Button googleLoginButton;
+    private Button phoneNumberLoginButton;
     private Button registerButton;
 
     private String uid;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                         if (firebaseAuth.getCurrentUser() == null) {
                             Log.i("firebase", "AuthState changed to null");
+                            logIn();//to push to page (Authstate  !=null unable to be reached)
                         }
                         else {
                             Log.i("firebase", "AuthState changed to "+firebaseAuth.getCurrentUser().getUid());
@@ -115,6 +117,10 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    private void logIn() {
+        Intent logInIntent = new Intent(MainActivity.this,BaseApplication.class);
+        startActivity(logInIntent);
+    }
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -139,12 +145,25 @@ public class MainActivity extends AppCompatActivity {
         registerButton = findViewById(R.id.registerButton);
 
 
+
         googleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
-            }
+
+                }
+
+
         });
+
+        Button phoneNumberLoginButton = findViewById(R.id.phoneNumberLoginButton);
+        phoneNumberLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
+            }
+                                                  });
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,7 +171,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent registrationIntent = new Intent(MainActivity.this, RegistrationActivity.class);
                 startActivity(registrationIntent);
             }
-        });
+        }
+        );
+
     }
 
 }

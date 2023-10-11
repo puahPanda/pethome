@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
+    android:id="@+id/fragment_swipe_filter"
     tools:context=".FilterPage">
 
     <LinearLayout
@@ -25,13 +26,18 @@
                 android:text="Filters"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/green_button_bg"
                 android:text="Reset"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <ScrollView
@@ -48,7 +54,55 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="15dp"/>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/filter_card"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pet-sitting/Pet-owning"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btn0_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pet-sitting"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="@color/border_color"
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
+                    </Button>
+                    <Button
+                        android:id="@+id/btn0_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pet-owning"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:backgroundTint="@color/border_color"
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,6 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn1_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dog"
@@ -83,9 +138,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn1_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cat"
@@ -93,9 +150,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn1_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Others"
@@ -103,7 +162,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
@@ -133,6 +193,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn2_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Male"
@@ -141,9 +202,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn2_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female"
@@ -151,9 +214,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn2_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Neutered"
@@ -161,7 +226,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
@@ -174,29 +240,41 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="53dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pet Age"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"/>
+                        android:text="Pet Age"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <TextView
-                        android:id="@+id/seekbar_text"
+                        android:id="@+id/seekbar_text_year"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0 months"
+                        android:layout_marginLeft="100dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="160dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginRight="20dp"
-                        android:textColor="@color/black"/>
+                        android:text="from 0 years"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/seekbar_text_month"
+                        android:layout_width="80dp"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="0 months"
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -248,6 +326,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn3_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Yes"
@@ -256,9 +335,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn3_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Doesn't matter"
@@ -266,7 +347,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
@@ -296,6 +378,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <Button
+                        android:id="@+id/btn4_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Yes"
@@ -304,9 +387,11 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                     <Button
+                        android:id="@+id/btn4_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Doesn't matter"
@@ -314,7 +399,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/border_color"
-                        android:textColor="@color/black">
+                        android:textColor="@color/black"
+                        android:onClick="onButtonClick">
                     </Button>
                 </LinearLayout>
             </LinearLayout>
@@ -327,7 +413,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:backgroundTint="@color/border_color"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:onClick="onSubmitButtonClick"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

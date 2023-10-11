@@ -31,6 +31,7 @@ public class BaseApplication extends AppCompatActivity
     VetFragment vetFragment = new VetFragment();
     SwipeFragment swipeFragment = new SwipeFragment();
     Button AB_Settings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,6 +52,25 @@ public class BaseApplication extends AppCompatActivity
         String uid = preferences.getString("uid","");
         Log.d("Session", "onCreate: uid = " + uid);
 //        String userEmail = preferences.getString("useremail", "");
+
+        if (getIntent().getBooleanExtra("showSwipeFragment", false)) {
+            // Create a new instance of SwipeFragment
+            SwipeFragment swipeFragment = new SwipeFragment();
+
+            // Retrieve the filter arguments from the intent extras
+            Bundle filterArgs = getIntent().getBundleExtra("filterArgs");
+
+            if (filterArgs != null) {
+                // Set the filter arguments as arguments for the SwipeFragment
+                swipeFragment.setArguments(filterArgs);
+            }
+
+            // Load the SwipeFragment into the fragment container
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, swipeFragment)
+                    .commit();
+        }
     }
 
     @Override
@@ -116,7 +136,10 @@ public class BaseApplication extends AppCompatActivity
         }
     }
 
+
     private void goToMainActivity() {
         startActivity(new Intent(BaseApplication.this, MainActivity.class));
     }
+
+
 }

@@ -90,10 +90,10 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="230dp"
+        android:layout_marginTop="400dp"
+        android:orientation="vertical"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
-        android:orientation="vertical"
-        android:layout_marginTop="440dp"
         android:weightSum="8">
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -101,29 +101,33 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:weightSum="9">
+
             <Button
                 android:id="@+id/btn_appt_1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="8:00" />
+                android:layout_weight="3"
+                android:text="8:00"
+                android:onClick="onButtonClick"/>
 
             <Button
                 android:id="@+id/btn_appt_2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="9:00"/>
+                android:layout_weight="3"
+                android:text="9:00"
+                android:onClick="onButtonClick"/>
 
             <Button
                 android:id="@+id/btn_appt_3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="10:00" />
+                android:layout_weight="3"
+                android:text="10:00"
+                android:onClick="onButtonClick"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -138,25 +142,28 @@
                 android:id="@+id/btn_appt_4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="11:00" />
+                android:layout_weight="3"
+                android:text="11:00"
+                android:onClick="onButtonClick"/>
 
             <Button
                 android:id="@+id/btn_appt_5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="12:00" />
+                android:layout_weight="3"
+                android:text="12:00"
+                android:onClick="onButtonClick"/>
 
             <Button
                 android:id="@+id/btn_appt_6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="13:00" />
+                android:layout_weight="3"
+                android:text="13:00"
+                android:onClick="onButtonClick"/>
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -172,25 +179,29 @@
                 android:id="@+id/btn_appt_7"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="14:00" />
+                android:layout_weight="3"
+                android:onClick="onButtonClick"
+                android:text="14:00"
+                android:textAlignment="center" />
 
             <Button
                 android:id="@+id/btn_appt_8"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="15:00" />
+                android:layout_weight="3"
+                android:text="15:00"
+                android:onClick="onButtonClick"/>
 
             <Button
                 android:id="@+id/btn_appt_9"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="16:00" />
+                android:layout_weight="3"
+                android:text="16:00"
+                android:onClick="onButtonClick"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -200,29 +211,34 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:weightSum="9">
+
             <Button
                 android:id="@+id/btn_appt_10"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="17:00" />
+                android:layout_weight="3"
+                android:text="17:00"
+                android:onClick="onButtonClick"
+                />
 
             <Button
                 android:id="@+id/btn_appt_11"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="18:00" />
+                android:layout_weight="3"
+                android:text="18:00"
+                android:onClick="onButtonClick"/>
 
             <Button
                 android:id="@+id/btn_appt_12"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
                 android:layout_margin="5dp"
-                android:text="19:00" />
+                android:layout_weight="3"
+                android:text="19:00"
+                android:onClick="onButtonClick"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -230,19 +246,19 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/confirmTimeAppt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/green_button_bg"
-        android:text="Confirm"
-        android:textColor="@color/white"
-        android:fontFamily="@font/inter_semibold"
-        android:textSize="18dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/green_button_bg"
+        android:fontFamily="@font/inter_semibold"
         android:scaleY="0.7"
-        />
+        android:text="Confirm"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
 
 </RelativeLayout>
