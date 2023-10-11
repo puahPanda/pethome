@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.pethome.chat.activities.SignInActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -144,6 +145,14 @@ public class MainActivity extends AppCompatActivity {
         googleLoginButton = findViewById(R.id.googleLoginButton);
         registerButton = findViewById(R.id.registerButton);
 
+        phoneNumberLoginButton = findViewById(R.id.phoneNumberLoginButton);
+        phoneNumberLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, SignInActivity.class);
+                startActivity(i);
+            }
+        });
 
 
         googleLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -156,14 +165,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button phoneNumberLoginButton = findViewById(R.id.phoneNumberLoginButton);
-        phoneNumberLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(loginIntent);
-            }
-                                                  });
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

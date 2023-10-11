@@ -2,6 +2,7 @@ package com.example.pethome.chat.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("TAG", "onCreate: opened");
         preferenceManager = new PreferenceManager(getApplicationContext());
         if (preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)) {
             Intent intent = new Intent(getApplicationContext(), BaseApplication.class);
@@ -35,8 +37,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void setListeners(){
-        binding.textCreateNewAccount.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(), SignUpActivity.class)));
+//        binding.textCreateNewAccount.setOnClickListener(v ->
+//                startActivity(new Intent(getApplicationContext(), SignUpActivity.class)));
         binding.buttonSignIn.setOnClickListener(v -> {
             if (isValidSignInDetails()) {
                 signIn();
@@ -71,9 +73,9 @@ public class SignInActivity extends AppCompatActivity {
     private void loading(Boolean isLoading) {
         if (isLoading) {
             binding.buttonSignIn.setVisibility(View.INVISIBLE);
-            binding.progressBar.setVisibility(View.VISIBLE);
+//            binding.progressBar.setVisibility(View.VISIBLE);
         } else {
-            binding.progressBar.setVisibility(View.INVISIBLE);
+//            binding.progressBar.setVisibility(View.INVISIBLE);
             binding.buttonSignIn.setVisibility(View.VISIBLE);
         }
     }

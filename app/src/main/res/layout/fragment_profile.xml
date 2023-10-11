@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/orangutan"
@@ -14,45 +13,75 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/spca"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/tvProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/orangutan"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/inter_medium"
-        android:text="SPCA"
+        android:text="@string/Display_Name"
         android:textColor="@color/black"
         android:textSize="26dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orangutan" />
 
 
-    <ImageView
-        android:id="@+id/adoption"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/edit_profile"
+        android:layout_width="313dp"
+        android:layout_height="27dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/btn_full_adoption_check"
-        app:layout_constraintEnd_toStartOf="@+id/deworming"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/editprofile_button"
+        android:text="Edit Profile"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
-
 
     <ImageView
         android:id="@+id/deworming"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/btn_deworming"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/cat2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/adoption"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
+
+    <ImageView
+        android:id="@+id/sterilise"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/duck2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adoption" />
+
+    <ImageView
+        android:id="@+id/adoption"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/johnnie"
+        app:layout_constraintEnd_toStartOf="@+id/deworming"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
 
     <ImageView
@@ -61,54 +90,14 @@
         android:layout_height="150dp"
         android:layout_below="@id/deworming"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="36dp"
-        android:src="@drawable/btn_vaccination_package"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/nek"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deworming" />
 
-    <ImageView
-        android:id="@+id/sterilise"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/btn_sterilise_package"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adoption" />
-
-    <ImageButton
-        android:id="@+id/btn_message"
-        android:layout_width="56dp"
-        android:layout_height="44dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/btn_message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vaccination" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_make_appt"
-        android:layout_width="265dp"
-        android:layout_height="41dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="24dp"
-        android:layout_toStartOf="@+id/btn_message"
-        android:background="@drawable/green_button_bg"
-        android:text="Make Appointment"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/btn_message"
-        app:layout_constraintHorizontal_bias="0.685"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sterilise" />
-    <!--
     <Button
+        android:visibility="invisible"
         android:id="@+id/Switch2U"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,5 +106,15 @@
         android:text="Switch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    -->
+
+    <ImageButton
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:background="@color/white"
+        android:src="@drawable/add_square"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></ImageButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,14 +53,11 @@
             android:screenOrientation="portrait"
 
             android:theme="@style/Theme.PetHome">
-
-            android:theme="@style/Theme.PetHome" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".RegistrationActivity"
@@ -100,11 +97,7 @@
             android:name=".chat.activities.SignInActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".chat.activities.MainActivityChat" />
 
