@@ -7,10 +7,13 @@
     android:padding="5dp"
     tools:context=".AddPet">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_choose_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/green_button_bg"
+        android:textColor="@color/white"
+        android:textSize="10dp"
         android:text="Choose picture" />
 
     <EditText
@@ -40,13 +43,15 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="84dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
+        android:background="@drawable/green_button_bg"
+        android:textColor="@color/white"
         android:text="Upload" />
 
     <TextView

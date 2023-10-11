@@ -31,7 +31,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ImageV
     }
 
 
-    @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.image_item,parent,false);
@@ -63,7 +62,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ImageV
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public TextView textViewName;
         public ImageView imageView;
-        public ImageViewHolder(@NonNull View itemView) {
+        public ImageViewHolder(View itemView) {
             super(itemView);
 
             textViewName = itemView.findViewById(R.id.text_view_name);

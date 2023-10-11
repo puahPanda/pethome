@@ -106,6 +106,22 @@
         app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sterilise" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_AddPet"
+        android:layout_width="109dp"
+        android:layout_height="53dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/green_border_bg"
+        android:fontFamily="@font/inter_semibold"
+        android:text="+"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green_button_color"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="151dp" />
+
     <!--
     <Button
         android:id="@+id/Switch2U"
