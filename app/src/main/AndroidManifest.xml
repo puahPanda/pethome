@@ -91,8 +91,6 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.PetHome" />
-        <activity android:name=".VetFragmentProfile"
-            android:exported="true"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
