@@ -11,7 +11,7 @@
         android:id="@+id/button_choose_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose file" />
+        android:text="Choose picture" />
 
     <EditText
         android:id="@+id/edit_text_file_name"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/button_choose_image"
-        android:hint="Enter file name"
+        android:hint="Enter name"
         android:textSize="18sp"
         android:textStyle="bold" />
 

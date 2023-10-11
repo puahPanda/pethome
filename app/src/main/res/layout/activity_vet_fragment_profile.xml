@@ -66,11 +66,11 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="409dp"
-        android:layout_above="@+id/confirmTimeAppt"
+        android:layout_above="@+id/btn_AddPet"
         android:layout_marginBottom="20dp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/confirmTimeAppt"
+        android:id="@+id/btn_AddPet"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
