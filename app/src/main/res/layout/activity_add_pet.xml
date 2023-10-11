@@ -51,14 +51,14 @@
 
     <TextView
         android:id="@+id/text_view_show_uploads"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="59dp"
+        android:layout_height="39dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="28dp"
-        android:layout_toEndOf="@+id/button_upload"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toStartOf="@+id/button_upload"
         android:gravity="center"
-        android:text="Show Uploads"
+        android:text="Back"
         android:textSize="16sp" />
 
 

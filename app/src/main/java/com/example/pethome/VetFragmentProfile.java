@@ -1,10 +1,12 @@
 package com.example.pethome;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +30,7 @@ public class VetFragmentProfile extends AppCompatActivity implements RecyclerAda
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mAdapter;
 
+    private Button addpets;
     private ProgressBar mProgressCircle;
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
@@ -37,6 +40,8 @@ public class VetFragmentProfile extends AppCompatActivity implements RecyclerAda
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vet_fragment_profile);
+
+        addpets = findViewById(R.id.btn_AddPet);
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -52,6 +57,13 @@ public class VetFragmentProfile extends AppCompatActivity implements RecyclerAda
 
         mStorage = FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+
+        addpets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(VetFragmentProfile.this, AddPet.class));
+            }
+        });
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
