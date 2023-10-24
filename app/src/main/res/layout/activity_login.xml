@@ -39,7 +39,7 @@
 
         <EditText
 
-            android:id="@+id/emailET"
+            android:id="@+id/inputEmail"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -59,7 +59,7 @@
             android:textSize="28dp"></TextView>
 
         <EditText
-            android:id="@+id/passwordET"
+            android:id="@+id/inputPassword"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -74,7 +74,7 @@
             android:layout_weight="2"></Space>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/loginButton"
+            android:id="@+id/buttonSignIn"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"

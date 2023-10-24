@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.pethome.chat.activities.MainActivityChat;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -93,10 +94,9 @@ public class BaseApplication extends AppCompatActivity
                 return true;
 
             case R.id.chat:
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragment, chatFragment)
-                        .commit();
+                Intent intent = new Intent(getApplicationContext(), MainActivityChat.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 return true;
             case R.id.profile:
                 getSupportFragmentManager()
