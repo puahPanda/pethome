@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/orangutan"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/editBtn"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
@@ -20,7 +20,7 @@
         android:id="@+id/tvProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orangutan"
+        android:layout_below="@id/editBtn"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_medium"
         android:text="SPCA"
@@ -28,7 +28,7 @@
         android:textSize="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orangutan" />
+        app:layout_constraintTop_toBottomOf="@+id/editBtn" />
 
 
     <ImageView
@@ -112,7 +112,7 @@
         android:layout_width="109dp"
         android:layout_height="53dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/green_border_bg"
         android:fontFamily="@font/inter_semibold"
         android:text="+"
@@ -120,7 +120,10 @@
         android:textColor="@color/dark_green_button_color"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="151dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfileName"
+        app:layout_constraintVertical_bias="0.997" />
 
     <!--
     <Button
