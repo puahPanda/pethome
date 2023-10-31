@@ -25,7 +25,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
 //        btn_make_appt = view.findViewById(R.id.btn_make_appt);
-        //*editButton = view.findViewById(R.id.edit_profile);
+        editButton = view.findViewById(R.id.edit_profile);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +34,7 @@ public class ProfileFragment extends Fragment {
                 startActivity(i);
             }
         });
-        //btnAdd = view.findViewById(R.id.addBtn);
+        btnAdd = view.findViewById(R.id.addBtn);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +42,7 @@ public class ProfileFragment extends Fragment {
                 startActivity(i);
             }
         });
-        //*btnswitch2user = view.findViewById(R.id.Switch2U);
+        //btnswitch2user = view.findViewById(R.id.Switch2U);
 
 
 //        });

@@ -7,61 +7,55 @@
     android:layout_height="match_parent"
     tools:context=".ApptVetServiceLocation">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_deworm_appt"
+    <Button
+        android:id="@+id/button7"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView12"
         android:layout_alignParentStart="true"
         android:layout_marginStart="103dp"
         android:layout_marginTop="11dp"
-        android:background="@drawable/green_button_bg"
-        android:text="Deworming &#10; (Remove current and prevent future parasites )"
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:background="#16FF16"
+        android:text="Farrer Road &#10; Operating Hours: 9am-7pm"
+        android:textAlignment="textStart"
+        android:textColor="#FDFDFD"
         android:textSize="10sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_sterilise_appt"
+    <Button
+        android:id="@+id/button6"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_fr"
+        android:layout_below="@+id/button"
         android:layout_alignParentStart="true"
         android:layout_marginStart="101dp"
         android:layout_marginTop="225dp"
-        android:text="Sterilise &#10; (Remove reproductive organs)"
-        android:textAlignment="center"
-        android:background="@drawable/green_button_bg"
-        android:textColor="@color/white"
+        android:text="River Valley &#10; Operating Hours: 24/7"
+        android:textAlignment="viewStart"
         android:textSize="10sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_vaccine_appt"
+    <Button
+        android:id="@+id/button5"
         android:layout_width="209dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_rv"
+        android:layout_below="@+id/button3"
         android:layout_alignParentStart="true"
         android:layout_marginStart="101dp"
         android:layout_marginTop="227dp"
-        android:text="Vaccination &#10; (To control spread of viral and bacterial diseases)"
-        android:textAlignment="center"
-        android:background="@drawable/green_button_bg"
-        android:textColor="@color/white"
+        android:text="Clarke Quay &#10; Operating Hours: 9am-7pm"
+        android:textAlignment="viewStart"
         android:textSize="10sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_fullcheck_appt"
+    <Button
+        android:id="@+id/button8"
         android:layout_width="209dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_vaccine_appt"
+        android:layout_below="@+id/button5"
         android:layout_alignParentStart="true"
         android:layout_marginStart="101dp"
         android:layout_marginTop="14dp"
         android:insetLeft="0dp"
-        android:text="Full adoption check &#10; (include Deworming, sterilise, vaccination)"
-        android:textAlignment="center"
-        android:background="@drawable/green_button_bg"
-        android:textColor="@color/white"
+        android:text="Clarke Quay &#10; Operating Hours: 9am-7pm"
+        android:textAlignment="viewStart"
         android:textSize="10sp" />
 
     <ImageView
@@ -133,46 +127,42 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_fr"
+    <Button
+        android:id="@+id/button"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView11"
         android:layout_alignParentStart="true"
         android:layout_marginStart="103dp"
         android:layout_marginTop="14dp"
-        android:text="Farrer Road &#10;Operating Hours: 8am-8pm"
-        android:textAlignment="center"
-        android:background="@drawable/green_button_bg"
-        android:textColor="@color/white"
+        android:background="#16FF16"
+        android:text="Farrer Road &#10;Operating Hours: 9am-7pm"
+        android:textAlignment="textStart"
+        android:textColor="#FDFDFD"
         android:textSize="10sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_rv"
+    <Button
+        android:id="@+id/button3"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_fr"
+        android:layout_below="@+id/button"
         android:layout_alignParentStart="true"
         android:layout_marginStart="103dp"
         android:layout_marginTop="7dp"
-        android:text="River Valley &#10;Operating Hours: 8am-8pm"
-        android:textAlignment="center"
-        android:background="@drawable/green_button_bg"
-        android:textColor="@color/white"
+        android:text="River Valley &#10;Operating Hours: 24/7"
+        android:textAlignment="viewStart"
         android:textSize="10sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_cq"
+    <Button
+        android:id="@+id/button4"
         android:layout_width="209dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_rv"
+        android:layout_below="@+id/button3"
         android:layout_alignParentStart="true"
         android:layout_marginStart="102dp"
         android:layout_marginTop="6dp"
-        android:text="Clarke Quay &#10;Operating Hours: 8am-8pm"
-        android:textAlignment="center"
-        android:background="@drawable/green_button_bg"
-        android:textColor="@color/white"
+        android:text="Clarke Quay &#10;Operating Hours: 9am-7pm"
+        android:textAlignment="viewStart"
         android:textSize="10sp" />
 
     <TextView
@@ -199,18 +189,15 @@
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/back_btn" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_next"
+    <Button
+        android:id="@+id/button9"
         android:layout_width="186dp"
         android:layout_height="32dp"
-        android:layout_below="@+id/btn_fullcheck_appt"
+        android:layout_below="@+id/button8"
         android:layout_alignParentStart="true"
         android:layout_marginStart="112dp"
         android:layout_marginTop="23dp"
         android:text="Next"
-        android:textSize="10sp"
-        android:textAlignment="center"
-        android:background="@drawable/green_button_bg"
-        android:textColor="@color/white"/>
+        android:textSize="10sp" />
 
 </RelativeLayout>
