@@ -27,7 +27,7 @@ public class BaseApplication extends AppCompatActivity
     MaterialToolbar myToolbar;
     LikesFragment likesFragment = new LikesFragment();
     ChatFragment chatFragment = new ChatFragment();
-    ProfileFragment profileFragment = new ProfileFragment();
+    MyProfileNewFragment profileFragment = new MyProfileNewFragment();
     VetFragment vetFragment = new VetFragment();
     SwipeFragment swipeFragment = new SwipeFragment();
     Button AB_Settings;
