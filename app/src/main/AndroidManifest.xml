@@ -43,6 +43,8 @@
         <activity
             android:name=".ApptVetServiceLocation"
             android:exported="false" />
+        <activity android:name=".VetFragment"
+            android:exported="false"/>
         <activity
             android:name=".FilterPage"
             android:exported="true" />

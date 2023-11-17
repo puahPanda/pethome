@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.pethome.BaseApplication;
 import com.example.pethome.databinding.ActivitySignInBinding;
@@ -20,6 +21,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private ActivitySignInBinding binding;
     private PreferenceManager preferenceManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,10 @@ public class SignInActivity extends AppCompatActivity {
             if (isValidSignInDetails()) {
                 signIn();
             }
+        });
+
+        binding.backButton.setOnClickListener(v -> {
+            onBackPressed();
         });
     }
 

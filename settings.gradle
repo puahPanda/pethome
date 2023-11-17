@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PetHome"
 include ':app'
-include ':unityLibrary'
-include ':unityLibrary:xrmanifest.androidlib'
+//include ':unityLibrary'
+//include ':unityLibrary:xrmanifest.androidlib'

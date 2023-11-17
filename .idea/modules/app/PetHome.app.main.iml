@@ -175,7 +175,6 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/eaeae9bf20f6835e55dff4c196e29ce0/transformed/ssp-android-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/1191604396863be525b13addf51b8324/transformed/roundedimageview-2.3.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d945645d308703a77dfc745146085315/transformed/multidex-2.0.1-api.jar</arg>
-                <arg>$MODULE_DIR$/../../../unityLibrary/build/intermediates/compile_library_classes_jar/debug/classes.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-34/android.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/build-tools/33.0.1/core-lambda-stubs.jar</arg>
               </args>
@@ -233,7 +232,6 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 34, extension level 7 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="PetHome.unityLibrary.main" />
     <orderEntry type="library" name="Gradle: androidx.databinding:viewbinding:8.1.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.ui:ui-tooling:1.4.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.compose.runtime:runtime:1.4.0@aar" level="project" />

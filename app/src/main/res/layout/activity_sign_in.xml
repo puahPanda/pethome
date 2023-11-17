@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="40dp">
+    android:padding="40dp"
+    android:weightSum="10"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backButton"
@@ -14,85 +17,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
-        android:weightSum="12"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"></Space>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:src="@drawable/logocomplete">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter_semibold"
-            android:gravity="bottom"
-            android:text="Email"
-            android:textColor="#010001"
-            android:textSize="28dp"></TextView>
+    </ImageView>
 
-        <EditText
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></Space>
+    <EditText
 
-            android:id="@+id/inputEmail"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter"
-            android:inputType="textEmailAddress"
-            android:textSize="17dp" />
+        android:id="@+id/inputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:textSize="17dp" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/inter_semibold"
-            android:gravity="bottom"
-            android:text="Password"
-            android:textColor="#010001"
-            android:textSize="28dp"></TextView>
 
-        <EditText
-            android:id="@+id/inputPassword"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:hint="********"
-            android:fontFamily="@font/inter"
-            android:inputType="textPassword"
-            android:textSize="17dp" />
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/inter"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="17dp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"></Space>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"></Space>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/green_button_bg"
-            android:clickable="true"
-            android:fontFamily="@font/inter_bold"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:textSize="18dp" />
-        <TextView
-            android:paddingTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="16dp"
-            android:text="Forogt Password"
-            android:textColor="#65A5F0"
-            android:textAlignment="center"></TextView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/green_button_bg"
+        android:clickable="true"
+        android:fontFamily="@font/inter_bold"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="5dp"
+        android:text="Forogt Password"
+        android:textAlignment="center"
+        android:textColor="#65A5F0"
+        android:textSize="16dp"></TextView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

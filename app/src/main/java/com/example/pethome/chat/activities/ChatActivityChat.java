@@ -1,11 +1,17 @@
 package com.example.pethome.chat.activities;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatImageView;
+
+import com.example.pethome.R;
 import com.example.pethome.User;
+import com.example.pethome.VetFragment;
 import com.example.pethome.chat.adapters.ChatAdapter;
 //import com.example.pethome.chat.databinding.ActivityChatBinding;
 import com.example.pethome.chat.models.ChatMessage;
@@ -164,6 +170,12 @@ public class ChatActivityChat extends BaseActivityChat {
     private void setListeners() {
         binding.imageBack.setOnClickListener(v -> onBackPressed());
         binding.layoutSend.setOnClickListener(v -> sendMessage());
+        binding.imageInfo.setOnClickListener(v -> goToVetFrag());
+    }
+
+    private void goToVetFrag() {
+        Intent i = new Intent(getApplicationContext(), VetFragment.class);
+        startActivity(i);
     }
 
     private String getReadableDateTime(Date date){

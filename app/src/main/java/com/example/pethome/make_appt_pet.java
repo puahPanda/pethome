@@ -6,17 +6,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class make_appt_pet extends Activity {
     private Button btnApptSet;
+    ImageButton btn_back;
+
     //private Button btnConfirmAppt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_appt_pet);
 
-        btnApptSet = null;
-        //btnConfirmAppt = findViewById(R.id.confirmTimeAppt);
+        btnApptSet = findViewById(R.id.confirmTimeAppt);
+        btnApptSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+
+        btn_back = findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     public void onButtonClick(View view) {

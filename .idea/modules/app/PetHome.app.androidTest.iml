@@ -120,7 +120,6 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/b90f93155ce177a359869a7ecba9082c/transformed/viewbinding-8.1.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.8.0/ed04f49e186a116753ad70d34f0ac2925d1d8020/kotlin-stdlib-jdk8-1.8.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/6c855af0f9773b708cfc302b3db0522c/transformed/constraintlayout-2.1.4-api.jar</arg>
-                <arg>$MODULE_DIR$/../../../unityLibrary/build/intermediates/compile_library_classes_jar/debug/classes.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/273e5e895159a8dd40d35336ae4edfc8/transformed/circleimageview-3.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/747bb7bc21f4ad68c0badff2bb8a575a/transformed/library-1.0.9-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/216a8f244f12fa21bf589e6d1281b56f/transformed/picasso-2.8-api.jar</arg>
@@ -250,7 +249,6 @@
     <orderEntry type="jdk" jdkName="Android API 34, extension level 7 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="PetHome.app.main" scope="TEST" />
-    <orderEntry type="module" module-name="PetHome.unityLibrary.main" scope="TEST" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.ext:junit:1.1.5@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.5.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.6.1@aar" level="project" />

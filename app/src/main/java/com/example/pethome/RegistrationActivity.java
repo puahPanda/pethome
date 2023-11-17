@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button registerButton;
     private TextView loginRedirectText;
 
+    AppCompatButton backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,14 @@ public class RegistrationActivity extends AppCompatActivity {
         emailET = findViewById(R.id.emailET);
         passwordET = findViewById(R.id.passwordET);
         registerButton = findViewById(R.id.registerButton);
+        backButton = findViewById(R.id.backButton);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override

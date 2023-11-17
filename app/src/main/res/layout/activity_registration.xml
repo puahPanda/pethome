@@ -48,14 +48,15 @@
                 android:id="@+id/numberSpinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:entries="@array/number_options" />
+                android:layout_weight="2.5"
+                android:entries="@array/number_options"
+                />
 
             <EditText
                 android:id="@+id/numberEditText"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2.5"
                 android:fontFamily="@font/inter"
                 android:hint="0000 0000"
                 android:inputType="number"
@@ -108,7 +109,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="4"></Space>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/registerButton"
