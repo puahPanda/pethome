@@ -1,7 +1,10 @@
 package com.example.pethome;
 
+import static androidx.core.content.ContextCompat.startActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 
 import android.view.View;
@@ -13,6 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import com.unity3d.player.UnityPlayerActivity;
 
 import java.util.List;
 
@@ -30,7 +34,11 @@ public class arrayAdapter extends ArrayAdapter<Pet>{
     }
 
     private void openAr(){
-
+        Intent i = new Intent(getContext(), UnityPlayerActivity.class);
+        //send data to unity
+        i.putExtra("result","some Data");
+        startActivity(getContext(),i,null);
+        
     }
 
     public View getView(int position, View convertView, ViewGroup parent){

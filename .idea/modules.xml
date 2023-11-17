@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PetHome.iml" filepath="$PROJECT_DIR$/.idea/modules/PetHome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PetHome.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PetHome.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PetHome.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PetHome.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PetHome.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PetHome.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PetHome.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PetHome.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.main.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/PetHome.unityLibrary.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/unityLibrary/xrmanifest.androidlib/PetHome.unityLibrary.xrmanifest.androidlib.unitTest.iml" />
+    </modules>
+  </component>
+</project>

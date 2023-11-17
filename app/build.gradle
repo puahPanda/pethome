@@ -47,7 +47,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:23.2.1'
     implementation 'com.google.firebase:firebase-database:20.2.2'
     implementation 'com.google.firebase:firebase-storage:20.2.1'
-
+    implementation project(path: ':unityLibrary')
 
 
     testImplementation 'junit:junit:4.13.2'

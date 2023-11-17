@@ -14,7 +14,7 @@
 
 AIzaSyDntxIrPpJkPki-OrqeZUNiTO7wdgkWp38
     </string>
-
+    <string name="game_view_content_description" translatable="false">Game view</string>
     <string name="welcome_back">Welcome Back!</string>
     <string name="login_to_continue">Login to continue</string>
     <string name="email">Email</string>
