@@ -48,6 +48,7 @@
             android:textAlignment="center"></TextView>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnEditProfile"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
@@ -136,11 +137,11 @@
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:background="@drawable/green_button_bg"
+                        android:background="@drawable/dog1"
                         android:backgroundTint="#00FFFFFF"
                         android:scaleType="centerCrop"
                         android:layout_weight="7"
-                        android:src="@drawable/cat1"/>
+                        android:src="@drawable/dog1"/>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
@@ -151,7 +152,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Joshua"
+                            android:text="Tammy"
                             android:gravity="center_vertical"
                             android:paddingLeft="10dp"
                             android:background="@color/white"
@@ -171,7 +172,7 @@
                             android:background="@color/white"
                             android:fontFamily="@font/inter_bold"
                             android:paddingLeft="10dp"
-                            android:text="2M"
+                            android:text="4M"
                             android:textAlignment="viewEnd"
                             android:textColor="#1B703D"
                             android:textStyle="bold"></TextView>
@@ -196,19 +197,21 @@
                 android:layout_weight="4"
                 app:cardCornerRadius="10dp"
                 android:layout_margin="10dp">
+
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="10"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
                     <ImageButton
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_weight="7"
                         android:background="@drawable/green_button_bg"
                         android:backgroundTint="#00FFFFFF"
                         android:scaleType="centerCrop"
-                        android:layout_weight="7"
-                        android:src="@drawable/cat1"/>
+                        android:src="@drawable/dog2" />
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
@@ -216,22 +219,21 @@
                         android:layout_weight="3"
                         android:orientation="horizontal"
                         android:weightSum="5">
+
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Joshua"
+                            android:layout_weight="3"
+                            android:alpha="0.8"
+                            android:background="@color/white"
+                            android:fontFamily="@font/inter_bold"
                             android:gravity="center_vertical"
                             android:paddingLeft="10dp"
-                            android:background="@color/white"
-                            android:alpha="0.8"
-                            android:layout_weight="3"
+                            android:text="Tenia"
                             android:textColor="#1B703D"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/inter_bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                         <TextView
-                            android:paddingRight="10dp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
@@ -239,7 +241,8 @@
                             android:background="@color/white"
                             android:fontFamily="@font/inter_bold"
                             android:paddingLeft="10dp"
-                            android:text="2M"
+                            android:paddingRight="10dp"
+                            android:text="6M"
                             android:textAlignment="viewEnd"
                             android:textColor="#1B703D"
                             android:textStyle="bold"></TextView>
@@ -267,7 +270,7 @@
                         android:backgroundTint="#00FFFFFF"
                         android:scaleType="centerCrop"
                         android:layout_weight="7"
-                        android:src="@drawable/cat1"/>
+                        android:src="@drawable/dog3"/>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
@@ -279,7 +282,7 @@
                             android:id="@+id/leftName"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:text="Joshua"
+                            android:text="Tingle"
                             android:gravity="center_vertical"
                             android:paddingLeft="10dp"
                             android:background="@color/white"
@@ -313,11 +316,13 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:layout_width="match_parent"
+            android:id="@+id/btn_AddPet"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/fui_transparent"
             android:src="@drawable/add_square"
+            android:layout_gravity="center"
             />
     </androidx.appcompat.widget.LinearLayoutCompat>
 

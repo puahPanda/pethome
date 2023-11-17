@@ -65,15 +65,15 @@
         android:textSize="34sp"
         android:textStyle="bold" />
 
+
     <CalendarView
         android:id="@+id/appt_calendarView"
         android:layout_width="334dp"
         android:layout_height="305dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="91dp"
         android:layout_marginEnd="42dp" />
-
 
     <ImageButton
         android:id="@+id/btn_back"
@@ -102,27 +102,30 @@
             android:layout_weight="2"
             android:weightSum="9">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_1"
                 android:layout_width="0dp"
+                android:background="@drawable/editprofile_button"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
                 android:text="8:00"
                 android:onClick="onButtonClick"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
+                android:background="@drawable/editprofile_button"
                 android:layout_weight="3"
                 android:text="9:00"
                 android:onClick="onButtonClick"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_3"
                 android:layout_width="0dp"
+                android:background="@drawable/editprofile_button"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
@@ -138,28 +141,31 @@
             android:layout_weight="2"
             android:weightSum="9">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
+                android:background="@drawable/editprofile_button"
                 android:layout_weight="3"
                 android:text="11:00"
                 android:onClick="onButtonClick"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_5"
                 android:layout_width="0dp"
+                android:background="@drawable/editprofile_button"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
                 android:text="12:00"
                 android:onClick="onButtonClick"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:background="@drawable/editprofile_button"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
                 android:text="13:00"
@@ -175,9 +181,10 @@
             android:layout_weight="2"
             android:weightSum="9">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_7"
                 android:layout_width="0dp"
+                android:background="@drawable/editprofile_button"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
@@ -185,8 +192,9 @@
                 android:text="14:00"
                 android:textAlignment="center" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_8"
+                android:background="@drawable/editprofile_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -194,8 +202,9 @@
                 android:text="15:00"
                 android:onClick="onButtonClick"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_9"
+                android:background="@drawable/editprofile_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -212,7 +221,8 @@
             android:layout_weight="2"
             android:weightSum="9">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
+                android:background="@drawable/editprofile_button"
                 android:id="@+id/btn_appt_10"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -222,7 +232,8 @@
                 android:onClick="onButtonClick"
                 />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
+                android:background="@drawable/editprofile_button"
                 android:id="@+id/btn_appt_11"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -231,8 +242,9 @@
                 android:text="18:00"
                 android:onClick="onButtonClick"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appt_12"
+                android:background="@drawable/editprofile_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"

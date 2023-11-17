@@ -1,9 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddPetNew">
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".AddPetNew"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        android:src="@drawable/button_back" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:weightSum="10"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:weightSum="5"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                app:cardCornerRadius="40dp">
+
+                <ImageView
+                    android:id="@+id/btnAddImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_add"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:weightSum="4"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:text="Name:"
+                android:textSize="15dp"
+                android:fontFamily="@font/crimson_pro_bold"
+                android:textColor="@color/black"
+                android:gravity="center"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Breed:"
+                android:textSize="15dp"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/crimson_pro_bold"
+                android:textColor="@color/black"
+                android:gravity="center"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:text="Age:"
+                android:textSize="15dp"
+                android:fontFamily="@font/crimson_pro_bold"
+                android:textColor="@color/black"
+                android:gravity="center"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Gender:"
+                android:textSize="15dp"
+                android:textAlignment="textEnd"
+                android:fontFamily="@font/crimson_pro_bold"
+                android:textColor="@color/black"
+                android:gravity="center"></TextView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:weightSum="4"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:fontFamily="@font/crimson_pro"
+                android:textColor="@color/black"></EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:fontFamily="@font/crimson_pro"
+                android:textColor="@color/black"></EditText>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="15dp"
+                android:fontFamily="@font/crimson_pro"
+                android:textColor="@color/black"></EditText>
+
+            <Spinner
+                android:id="@+id/genderSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:entries="@array/gender_options"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <CheckBox
+            android:id="@+id/checkboxSterilized"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sterilized"/>
+
+        <CheckBox
+            android:id="@+id/checkboxVaccinated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vaccinated"
+            android:layout_marginStart="20dp"/>
+
+        <CheckBox
+            android:id="@+id/checkboxMicrochipped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Microchipped"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="First Field"
+        android:gravity="center_vertical"
+        android:textSize="15dp"
+        android:fontFamily="@font/crimson_pro"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_textfield"
+        android:minLines="3"
+        android:paddingLeft="5dp"
+        android:inputType="textMultiLine"/>
+
+    <TextView
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Second Field"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:fontFamily="@font/crimson_pro"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_textfield"
+        android:minLines="3"
+        android:paddingLeft="5dp"
+        android:inputType="textMultiLine"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_AddPet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/editprofile_button"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:fontFamily="@font/crimson_pro_bold"
+        android:text="Add Pet"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
