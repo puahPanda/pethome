@@ -1,6 +1,8 @@
 package com.example.pethome;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.ViewHolder> {
@@ -35,6 +38,14 @@ public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.View
         Glide.with(view).load(pet_item.getImageUrl()).into(holder.leftImage);
         holder.leftName.setText(pet_item.getName());
         holder.leftAge.setText(pet_item.getAge() + "M");
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("likedpets", "onClick: likedpet clicked");
+                showDetailsDialog(pet_item);
+            }
+        });
     }
 
     @Override
@@ -58,5 +69,31 @@ public class LikedPetsAdapter extends RecyclerView.Adapter<LikedPetsAdapter.View
         this.context = context;
         this.likedList = likedList;
     }
+
+
+
+    private void showDetailsDialog(
+            Pet pet) {
+        // Create a dialog to show details
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.TransparentDialog);
+        View view = LayoutInflater.from(context).inflate(R.layout.petcardpopup, null);
+
+        // Bind data to the details card using the CardDetailsAdapter
+        CardDetailsAdapter detailsAdapter = new CardDetailsAdapter();
+
+        detailsAdapter.bindData(view, pet);
+
+        builder.setView(view);
+
+        // Allow the user to click outside the dialog to dismiss it
+        builder.setCancelable(true);
+
+        // Show the dialog
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        dialog.show();
+    }
+
 
 }
