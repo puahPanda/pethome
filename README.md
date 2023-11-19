@@ -1,4 +1,4 @@
-![PetHome](https://drive.google.com/file/d/15ZZGxV-ZoemRYyZi8djHshdLlHTpiHnx/view?usp=sharing)
+![PetHome](https://github.com/mingzhi987/pethome/blob/main/app/src/main/res/drawable/logocomplete.png)
 # PetHome
 
 PetHome offers users a one-stop solution to browse available pets for adoption or pet-sitting, along with comprehensive information about each pet
