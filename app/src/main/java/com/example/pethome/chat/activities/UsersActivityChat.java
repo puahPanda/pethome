@@ -87,6 +87,7 @@ public class UsersActivityChat extends BaseActivityChat implements UserListener 
     public void onUserClicked(User user) {
         Intent intent = new Intent(getApplicationContext(), ChatActivityChat.class);
         intent.putExtra(Constants.KEY_USER, user);
+        intent.putExtra("Source", "chat");
         startActivity(intent);
         finish();
     }

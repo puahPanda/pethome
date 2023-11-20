@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
 
+import com.example.pethome.BaseApplication;
 import com.example.pethome.R;
 import com.example.pethome.User;
 import com.example.pethome.VetFragment;
@@ -50,6 +52,7 @@ public class ChatActivityChat extends BaseActivityChat {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("send message", "sendMessage: " + "entered");
         binding = ActivityChatBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setListeners();
@@ -77,6 +80,7 @@ public class ChatActivityChat extends BaseActivityChat {
         message.put(Constants.KEY_MESSAGE, binding.inputMessage.getText().toString());
         message.put(Constants.KEY_TIMESTAMP, new Date());
         database.collection(Constants.KEY_COLLECTION_CHAT).add(message);
+        Log.d("send message", "sendMessage: " + message.get(Constants.KEY_MESSAGE));
         if (conversionId != null) {
             updateConversion(binding.inputMessage.getText().toString());
         } else {
@@ -168,9 +172,25 @@ public class ChatActivityChat extends BaseActivityChat {
     }
 
     private void setListeners() {
-        binding.imageBack.setOnClickListener(v -> onBackPressed());
+        binding.imageBack.setOnClickListener(v -> handleBack());
         binding.layoutSend.setOnClickListener(v -> sendMessage());
         binding.imageInfo.setOnClickListener(v -> goToVetFrag());
+    }
+
+    private void handleBack() {
+         String source = (String) getIntent().getStringExtra("Source");
+         if("swipe".equals(source)){
+             Intent iswipe = new Intent(getApplicationContext(), BaseApplication.class);
+             startActivity(iswipe);
+             finish();
+         }
+         else if ("chat".equals(source)){
+             Intent ichat = new Intent(getApplicationContext(), MainActivityChat.class);
+             startActivity(ichat);
+             finish();
+         }else{
+             super.onBackPressed();
+         }
     }
 
     private void goToVetFrag() {
