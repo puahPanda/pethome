@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.unity3d.player.UnityPlayerActivity;
 
 //import com.unity3d.player.UnityPlayerActivity;
 
@@ -33,13 +34,13 @@ public class arrayAdapter extends ArrayAdapter<Pet>{
         super(context, resourceId, items);
     }
 
-//    private void openAr(){
-//        Intent i = new Intent(getContext(), UnityPlayerActivity.class);
-//        //send data to unity
-//        i.putExtra("result","some Data");
-//        startActivity(getContext(),i,null);
-//
-//    }
+    private void openAr(){
+        Intent i = new Intent(getContext(), UnityPlayerActivity.class);
+        //send data to unity
+        i.putExtra("result","some Data");
+        startActivity(getContext(),i,null);
+
+    }
 
     public View getView(int position, View convertView, ViewGroup parent){
         Pet pet_item = getItem(position);
@@ -74,7 +75,7 @@ public class arrayAdapter extends ArrayAdapter<Pet>{
         arBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                openAr();
+                openAr();
             }
         });
 
